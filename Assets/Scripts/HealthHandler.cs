@@ -7,6 +7,8 @@ public class HealthHandler : MonoBehaviour
     [Header("Attributes")]
     [SerializeField] private int hitPoints = 1;
 
+    private bool isDestroyed = false; 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,9 +25,10 @@ public class HealthHandler : MonoBehaviour
     {
         hitPoints -= dmg;
 
-        if (hitPoints <= 0)
+        if (hitPoints <= 0 && !isDestroyed)
         {
             EnemySpawner.onEnemyDestroy.Invoke();
+            isDestroyed = true;
             Destroy(gameObject);
         }
     }

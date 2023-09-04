@@ -6,20 +6,9 @@ public class HealthHandler : MonoBehaviour
 {
     [Header("Attributes")]
     [SerializeField] private int hitPoints = 1;
+    [SerializeField] private int currencyWorth = 50;
 
     private bool isDestroyed = false; 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void TakeDamage(int dmg)
     {
@@ -28,6 +17,7 @@ public class HealthHandler : MonoBehaviour
         if (hitPoints <= 0 && !isDestroyed)
         {
             EnemySpawner.onEnemyDestroy.Invoke();
+            LevelManager.main.IncreaseCurrency(currencyWorth);
             isDestroyed = true;
             Destroy(gameObject);
         }

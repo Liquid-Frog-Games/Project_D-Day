@@ -33,6 +33,9 @@ public class PlotHandler : MonoBehaviour
 
     private void OnMouseDown()
     {
-        Debug.Log("Build Tower Here, " + name);
+        if (tower != null) return;           //TODO: Replace return with upgrade options
+
+        GameObject towerToBuild = BuildManager.main.GetSelectedTower();
+        tower = Instantiate(towerToBuild, transform.position, Quaternion.identity);
     }
 }

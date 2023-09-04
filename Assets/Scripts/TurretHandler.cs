@@ -51,11 +51,13 @@ public class TurretHandler : MonoBehaviour
         }
     }
 
+    #if UNITY_Editor
     private void OnDrawGizmosSelected()
     {
         Handles.color = Color.cyan;
         Handles.DrawWireDisc(transform.position, transform.forward, targetingRange);
     }
+    #endif
 
     private void FindTarget()
     {

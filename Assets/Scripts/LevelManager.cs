@@ -26,7 +26,7 @@ public class LevelManager : MonoBehaviour
         coins += amount;
     }
 
-    public bool SpendCurrnecy(int amount)
+    public bool SpendCurrency(int amount)
     {
         if (amount <= coins)
         {

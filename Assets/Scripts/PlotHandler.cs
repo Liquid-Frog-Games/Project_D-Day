@@ -16,11 +16,6 @@ public class PlotHandler : MonoBehaviour
         startColor = sr.color;
     }
 
-    void Update()
-    {
-        
-    }
-
     private void OnMouseEnter()
     {
         sr.color = hoverColor;
@@ -35,7 +30,15 @@ public class PlotHandler : MonoBehaviour
     {
         if (tower != null) return;           //TODO: Replace return with upgrade options
 
-        GameObject towerToBuild = BuildManager.main.GetSelectedTower();
-        tower = Instantiate(towerToBuild, transform.position, Quaternion.identity);
+        Tower towerToBuild = BuildManager.main.GetSelectedTower();
+        if (towerToBuild.cost > LevelManager.main.coins)       //TODO: Replace with UI message
+        {
+            Debug.Log("You dont have enough coins for this towwer");
+            return;
+        }
+
+        LevelManager.main.SpendCurrency(towerToBuild.cost);
+
+        tower = Instantiate(towerToBuild.prefab, transform.position, Quaternion.identity);
     }
 }

@@ -9,6 +9,7 @@ public class LevelManager : MonoBehaviour
     public Transform startPoint;
     public Transform[] path;
 
+    public int lives;
     public int coins;
 
     private void Awake()
@@ -18,6 +19,7 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
+        lives = 100;
         coins = 100;
     }
 

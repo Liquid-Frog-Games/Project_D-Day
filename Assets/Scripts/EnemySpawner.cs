@@ -2,9 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using TMPro;
 
 public class EnemySpawner : MonoBehaviour
 {
+    public static EnemySpawner main;
+
     [Header("References")]
     [SerializeField] private GameObject[] enemyPrefabs;
 
@@ -13,7 +16,10 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private float enemiesPerSecond = 0.5f;
     [SerializeField] private float timeBetweenWaves = 5f;
     [SerializeField] private float difficultyScalingFactor = 0.75f;
-    private int currentWave = 1;
+    [SerializeField] private TextMeshProUGUI roundUI;
+
+    public int currentWave = 1;
+
     private float timeSinceLastSpawn;
     private int enemiesAlive;
     private int enemiesLeftToSpawn;
@@ -30,6 +36,7 @@ public class EnemySpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        roundUI.text = currentWave.ToString();
         StartCoroutine(StartWave());
     }
 
@@ -59,13 +66,13 @@ public class EnemySpawner : MonoBehaviour
         isSpawning = false;
         timeSinceLastSpawn = 0f;
         currentWave++;
+        roundUI.text = currentWave.ToString();
         StartCoroutine(StartWave());
     }
 
     private void EnemyDestroyed()
     {
         enemiesAlive--;
-
     }
 
     private IEnumerator StartWave()

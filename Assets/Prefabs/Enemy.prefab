@@ -163,6 +163,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 2683499986086587051}
+  health: {fileID: -681690324717421032}
   moveSpeed: 2
 --- !u!114 &-681690324717421032
 MonoBehaviour:
@@ -176,5 +177,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec09d10244be44a9f98133c626986d41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitPoints: 2
   currencyWorth: 50
+  hitPoints: 2

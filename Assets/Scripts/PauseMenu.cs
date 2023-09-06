@@ -24,6 +24,6 @@ public class PauseMenu : MonoBehaviour
 
     public void QuitStage()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);       //set to screen 1 (or 2 if level selecter)
     }
 }

@@ -1,13 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class LevelManager : MonoBehaviour
 {
-
     public static LevelManager main;
     public Transform startPoint;
     public Transform[] path;
+
+    public static bool gameIsPaused = false;
+    public GameObject gameOverMenuUI;
+    public static UnityEvent e_GameOver = new UnityEvent();
 
     public int lives;
     public int coins;
@@ -15,6 +19,7 @@ public class LevelManager : MonoBehaviour
     private void Awake()
     {
         main = this;
+        e_GameOver.AddListener(GameOver);
     }
 
     private void Start()
@@ -32,7 +37,6 @@ public class LevelManager : MonoBehaviour
     {
         if (amount <= coins)
         {
-            //BUY ITEM
             coins -= amount;
             return true;
         }
@@ -41,5 +45,12 @@ public class LevelManager : MonoBehaviour
             Debug.Log("You don't have enough coins to purchase this item."); //TODO: Replace with UI message
             return false;
         }
+    }
+
+    public void GameOver()
+    {
+        gameOverMenuUI.SetActive(true);
+        Time.timeScale = 0f;
+        gameIsPaused = true;
     }
 }

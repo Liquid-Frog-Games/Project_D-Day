@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PlotHandler : MonoBehaviour
 {
@@ -16,6 +17,14 @@ public class PlotHandler : MonoBehaviour
         startColor = sr.color;
     }
 
+
+    private bool IsMouseOverUI() 
+    {      
+        Debug.Log("Does it reguister?");
+        return EventSystem.current.IsPointerOverGameObject(Input.touches[0].fingerId);
+        
+    }
+
     private void OnMouseEnter()
     {
         sr.color = hoverColor;
@@ -28,17 +37,17 @@ public class PlotHandler : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (tower != null) return;           //TODO: Replace return with upgrade options
-
+                   //TODO: Replace return with upgrade options
+        if (tower != null) return;
+  
         Tower towerToBuild = BuildManager.main.GetSelectedTower();
         if (towerToBuild.cost > LevelManager.main.coins)       //TODO: Replace with UI message
         {
             Debug.Log("You dont have enough coins for this towwer");
             return;
         }
-
         LevelManager.main.SpendCurrency(towerToBuild.cost);
-
         tower = Instantiate(towerToBuild.prefab, transform.position, Quaternion.identity);
+        BuildManager.main.SetSelectedTower(-1);
     }
 }

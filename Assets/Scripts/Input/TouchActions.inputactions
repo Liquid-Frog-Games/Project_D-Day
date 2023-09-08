@@ -16,7 +16,7 @@
                 },
                 {
                     "name": "TouchPress",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "a9b91ba2-34c3-4585-8efa-cdef23f1cced",
                     "expectedControlType": "Button",
                     "processors": "",

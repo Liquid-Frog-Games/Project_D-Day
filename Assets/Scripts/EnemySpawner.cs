@@ -30,6 +30,7 @@ public class EnemySpawner : MonoBehaviour
 
     void Awake()
     {
+        StartCoroutine(StartWave());
         onEnemyDestroy.AddListener(EnemyDestroyed);
     }
 
@@ -37,7 +38,6 @@ public class EnemySpawner : MonoBehaviour
     void Start()
     {
         roundUI.text = currentWave.ToString();
-        StartCoroutine(StartWave());
     }
 
     // Update is called once per frame

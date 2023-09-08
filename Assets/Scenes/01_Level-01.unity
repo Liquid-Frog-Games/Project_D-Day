@@ -13732,10 +13732,6 @@ MonoBehaviour:
   towerSelect:
     m_PersistentCalls:
       m_Calls: []
-  currentSelectedPurchase:
-    name: 
-    cost: 0
-    prefab: {fileID: 0}
 --- !u!1 &1744154535
 GameObject:
   m_ObjectHideFlags: 0

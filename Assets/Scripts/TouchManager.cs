@@ -4,16 +4,13 @@ using UnityEngine.InputSystem;
 
 public class TouchManager : MonoBehaviour
 {   
-    public GameObject player;
-
     private PlayerInput playerInput;
     private InputAction touchPositionAction;
     private InputAction touchPressAction;
 
     private void Awake()
     {
-       
-
+      
         playerInput = GetComponent<PlayerInput>();
         touchPressAction = playerInput.actions["TouchPress"];
         touchPositionAction = playerInput.actions["TouchPosition"];

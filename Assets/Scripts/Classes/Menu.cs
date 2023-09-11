@@ -20,9 +20,4 @@ public class Menu : MonoBehaviour
     {
         currencyUI.text = LevelManager.main.coins.ToString();
     }
-
-    public void SetSelected()
-    {
-        //Remove?
-    }
 }

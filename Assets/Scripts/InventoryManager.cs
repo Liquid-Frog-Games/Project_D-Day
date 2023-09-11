@@ -10,8 +10,5 @@ public class InventoryManager : MonoBehaviour, IDropHandler
         GameObject dropped = eventData.pointerDrag;
         DragHandler draggableItem = dropped.GetComponent<DragHandler>();
         draggableItem.parentAfterDrag = transform;
-
     }
-
-
 }

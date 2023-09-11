@@ -17,7 +17,6 @@ public class PlotHandler : MonoBehaviour
         startColor = sr.color;
     }
 
-
     private bool IsPointerOverUIObject()
     {
         PointerEventData eventDataCurrentPosition = new PointerEventData(EventSystem.current);

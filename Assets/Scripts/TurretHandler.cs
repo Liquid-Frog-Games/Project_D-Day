@@ -20,12 +20,6 @@ public class TurretHandler : MonoBehaviour
     private Transform target;
     private float timeUntilFire;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     void Update()
     {
         if (target == null)

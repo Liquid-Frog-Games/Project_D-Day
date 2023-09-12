@@ -19,7 +19,8 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private TextMeshProUGUI roundUI;
 
     public int currentWave = 1;
-
+    private int enemySelectMax;
+  
     private float timeSinceLastSpawn;
     private int enemiesAlive;
     private int enemiesLeftToSpawn;
@@ -31,6 +32,8 @@ public class EnemySpawner : MonoBehaviour
 
     void Awake()
     {
+     
+        enemySelectMax = 1;
         baseEnemies = 8;
         enemiesPerSecond = 0.5f;
         timeBetweenWaves = 5f;
@@ -78,10 +81,16 @@ public class EnemySpawner : MonoBehaviour
 
     private void WaveDifficulty()
     {
-        baseEnemies += 1;
-        timeBetweenWaves -= 0.2f;
-        enemiesPerSecond += 0.35f;
-        difficultyScalingFactor += 0.25f;
+        if(currentWave % 2 == 0){
+            if(enemySelectMax < 3)
+            {
+                enemySelectMax += 1;
+            }
+            timeBetweenWaves -= 0.2f;
+            difficultyScalingFactor += 0.25f;
+            StartCoroutine(StartWave());
+
+        }
         StartCoroutine(StartWave());
     }
 
@@ -99,7 +108,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void SpawnEnemy()
     {
-        GameObject prefabToSpawn = enemyPrefabs[0];
+        GameObject prefabToSpawn = enemyPrefabs[Random.Range(0, enemySelectMax)];
         Instantiate(prefabToSpawn, LevelManager.main.startPoint.position, Quaternion.identity);
     }
 

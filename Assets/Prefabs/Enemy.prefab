@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2683499986086587051}
   - component: {fileID: 4585264220442988455}
   - component: {fileID: 5217943998689456521}
-  - component: {fileID: -681690324717421032}
+  - component: {fileID: -6450526277543442707}
   m_Layer: 6
   m_Name: Enemy
   m_TagString: Untagged
@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.764151, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -163,9 +163,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 2683499986086587051}
-  health: {fileID: -681690324717421032}
+  health: {fileID: 0}
   moveSpeed: 2
---- !u!114 &-681690324717421032
+--- !u!114 &-6450526277543442707
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -177,5 +177,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec09d10244be44a9f98133c626986d41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currencyWorth: 10
+  currencyWorth: 20
   hitPoints: 2

@@ -12,24 +12,32 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private GameObject[] enemyPrefabs;
 
     [Header("Attributes")]
-    [SerializeField] private int baseEnemies = 8;
-    [SerializeField] private float enemiesPerSecond = 0.5f;
-    [SerializeField] private float timeBetweenWaves = 5f;
-    [SerializeField] private float difficultyScalingFactor = 0.75f;
+    [SerializeField] private int baseEnemies;
+    [SerializeField] private float enemiesPerSecond;
+    [SerializeField] private float timeBetweenWaves;
+    [SerializeField] private float difficultyScalingFactor;
     [SerializeField] private TextMeshProUGUI roundUI;
 
     public int currentWave = 1;
-
+    private int enemySelectMax;
+  
     private float timeSinceLastSpawn;
     private int enemiesAlive;
     private int enemiesLeftToSpawn;
     private bool isSpawning = false;
+
 
     [Header("Events")]
     public static UnityEvent onEnemyDestroy = new UnityEvent();
 
     void Awake()
     {
+     
+        enemySelectMax = 1;
+        baseEnemies = 8;
+        enemiesPerSecond = 0.5f;
+        timeBetweenWaves = 5f;
+        difficultyScalingFactor = 0.75f;
         StartCoroutine(StartWave());
         onEnemyDestroy.AddListener(EnemyDestroyed);
     }
@@ -53,6 +61,7 @@ public class EnemySpawner : MonoBehaviour
             enemiesLeftToSpawn--;
             enemiesAlive++;
             timeSinceLastSpawn = 0f;
+     
         }
 
         if (enemiesAlive == 0 && enemiesLeftToSpawn == 0)
@@ -67,6 +76,21 @@ public class EnemySpawner : MonoBehaviour
         timeSinceLastSpawn = 0f;
         currentWave++;
         roundUI.text = currentWave.ToString();
+        WaveDifficulty();
+    }
+
+    private void WaveDifficulty()
+    {
+        if(currentWave % 2 == 0){
+            if(enemySelectMax < 3)
+            {
+                enemySelectMax += 1;
+            }
+            timeBetweenWaves -= 0.2f;
+            difficultyScalingFactor += 0.25f;
+            StartCoroutine(StartWave());
+
+        }
         StartCoroutine(StartWave());
     }
 
@@ -84,7 +108,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void SpawnEnemy()
     {
-        GameObject prefabToSpawn = enemyPrefabs[0];
+        GameObject prefabToSpawn = enemyPrefabs[Random.Range(0, enemySelectMax)];
         Instantiate(prefabToSpawn, LevelManager.main.startPoint.position, Quaternion.identity);
     }
 

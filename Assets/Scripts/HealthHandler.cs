@@ -10,6 +10,7 @@ public class HealthHandler : MonoBehaviour
 
     private bool isDestroyed = false; 
 
+
     public void TakeDamage(int dmg)
     {
         hitPoints -= dmg;

@@ -226,7 +226,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0edf27bed4e6744a8a3a3355d612c5f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetingRange: 2
+  targetingRange: 1.5
   rotationSpeed: 200
   bps: 1
   turretRotationPoint: {fileID: 4302407872440057422}

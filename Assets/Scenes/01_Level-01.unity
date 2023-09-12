@@ -5068,7 +5068,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 1.8
+  orthographic size: 3.44
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -18001,7 +18001,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 100
+  m_text: '150
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cebe8652f81cc414a93ab140d0ac2eea, type: 2}
   m_sharedMaterial: {fileID: -962754309803293182, guid: cebe8652f81cc414a93ab140d0ac2eea, type: 2}
@@ -19805,7 +19807,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.04770139}
   m_AnchorMax: {x: 0.5, y: 0.04770139}
-  m_AnchoredPosition: {x: 3.638e-12, y: -4.1725006}
+  m_AnchoredPosition: {x: 3.638e-12, y: -4.1724854}
   m_SizeDelta: {x: 640, y: 26}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1890340667

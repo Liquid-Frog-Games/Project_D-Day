@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2101086982044799146}
   - component: {fileID: 8317884774203880071}
   - component: {fileID: 4677918556484636888}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Water_Projectile_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -146,9 +146,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.24, y: 0.05}
+  m_Offset: {x: 0.08, y: 0.01}
   serializedVersion: 2
-  m_Radius: 0.25
+  m_Radius: 0.1
 --- !u!114 &4677918556484636888
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,5 +162,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 2101086982044799146}
-  bulletSpeed: 5
+  bulletSpeed: 3
   bulletDmg: 1

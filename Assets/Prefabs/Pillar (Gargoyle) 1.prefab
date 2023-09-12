@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2751582216195682780}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Firing Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,7 +45,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1301099376080156291}
   - component: {fileID: 7802340844188750192}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Gargoyle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 4214839574290095780}
   - component: {fileID: 4043916067549494052}
   - component: {fileID: 7404512786462939799}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Pillar (Gargoyle) 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -244,7 +244,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4302407872440057422}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Rotation Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}

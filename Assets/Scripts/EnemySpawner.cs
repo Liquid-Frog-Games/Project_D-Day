@@ -19,7 +19,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private TextMeshProUGUI roundUI;
 
     public int currentWave = 1;
-    private int enemySelectMax;
+    public int enemySelectMax = 0;
   
     private float timeSinceLastSpawn;
     private int enemiesAlive;
@@ -32,8 +32,6 @@ public class EnemySpawner : MonoBehaviour
 
     void Awake()
     {
-     
-        enemySelectMax = 1;
         baseEnemies = 8;
         enemiesPerSecond = 0.5f;
         timeBetweenWaves = 5f;
@@ -82,7 +80,7 @@ public class EnemySpawner : MonoBehaviour
     private void WaveDifficulty()
     {
         if(currentWave % 2 == 0){
-            if(enemySelectMax < 3)
+            if(enemySelectMax < enemyPrefabs.Length)
             {
                 enemySelectMax += 1;
             }

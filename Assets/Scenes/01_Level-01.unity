@@ -5068,7 +5068,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 3.44
+  orthographic size: 2.38
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -18521,7 +18521,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefabs:
-  - {fileID: 7994323243355639392, guid: a4090707ad4bc45f88bf6600518748db, type: 3}
+  - {fileID: 6075785086451327477, guid: 7dcb6cf7443ce4944a1712dc27df71f4, type: 3}
+  - {fileID: 7027281502658831023, guid: 52d7e10ef48d80549a5df1df7b224372, type: 3}
+  - {fileID: 1888237030453038785, guid: d4a8e25b1543b2f48a171d86ee8d31a0, type: 3}
   baseEnemies: 8
   enemiesPerSecond: 0.5
   timeBetweenWaves: 5

@@ -5068,7 +5068,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 3.44
+  orthographic size: 2.72
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -18521,17 +18521,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefabs:
-  - {fileID: 4241095294277776868, guid: 4e06b232a05a74512a79770204056ecf, type: 3}
-  - {fileID: 6075785086451327477, guid: 7dcb6cf7443ce4944a1712dc27df71f4, type: 3}
-  - {fileID: 7027281502658831023, guid: 52d7e10ef48d80549a5df1df7b224372, type: 3}
-  - {fileID: 1888237030453038785, guid: d4a8e25b1543b2f48a171d86ee8d31a0, type: 3}
+  - {fileID: 4951867885844365301, guid: d9d2e54f667ddb640bd5efde9c304b6d, type: 3}
+  - {fileID: 5100600856505084851, guid: 49acad7c250d0bd46ba49d34e5b9b86c, type: 3}
+  - {fileID: 3294945272362565110, guid: 69a01a243b8bb884eb5bcb832c1b3f14, type: 3}
   baseEnemies: 8
   enemiesPerSecond: 0.5
   timeBetweenWaves: 5
   difficultyScalingFactor: 0.75
   roundUI: {fileID: 1402697180}
   currentWave: 1
-  enemySelectMax: 0
+  enemySelectMax: 1
 --- !u!114 &1743109327
 MonoBehaviour:
   m_ObjectHideFlags: 0

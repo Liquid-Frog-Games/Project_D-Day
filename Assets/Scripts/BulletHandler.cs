@@ -33,6 +33,8 @@ public class BulletHandler : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
+		if(other.gameObject.layer == 8) return;
+
         other.gameObject.GetComponent<HealthHandler>().TakeDamage(bulletDmg);
         Destroy(gameObject);
     }

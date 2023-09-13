@@ -158,7 +158,7 @@ PlayerSettings:
   applicationIdentifier:
     Android: com.LiquidFrogGames.PandemoniumsGate
     Standalone: com.DefaultCompany.Project-D-Day
-    iPhone: com.LiquidFrogGames.Project-D-Day
+    iPhone: com.LiquidFrogGames.Pandemonium-s-Gate
   buildNumber:
     Standalone: 0
     VisionOS: 0

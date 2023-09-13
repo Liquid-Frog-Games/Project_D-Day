@@ -23,4 +23,5 @@ public class HealthHandler : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
 }

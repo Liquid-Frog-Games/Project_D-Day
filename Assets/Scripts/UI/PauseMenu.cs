@@ -28,6 +28,12 @@ public class PauseMenu : MonoBehaviour
         gameIsPaused = true;
     }
 
+    public void RestartStage()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
     public void QuitStage()
     {
         Time.timeScale = 1f;

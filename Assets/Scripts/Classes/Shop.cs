@@ -22,8 +22,6 @@ public class Shop : MonoBehaviour
             isShopOpen = !isShopOpen;
             anim.SetBool("ShopOpen", isShopOpen);  
         }
-        
-        
     }
 
     private void OnGUI()

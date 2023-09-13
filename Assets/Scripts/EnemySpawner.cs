@@ -68,6 +68,7 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
+    //called at the end of the wave
     private void EndWave()
     {
         isSpawning = false;
@@ -77,6 +78,7 @@ public class EnemySpawner : MonoBehaviour
         WaveDifficulty();
     }
 
+    //increases the wave difficulty if the wave is an even number
     private void WaveDifficulty()
     {
         if(currentWave % 2 == 0){
@@ -91,25 +93,25 @@ public class EnemySpawner : MonoBehaviour
         }
         StartCoroutine(StartWave());
     }
-
+    //on enemy destroyed
     private void EnemyDestroyed()
     {
         enemiesAlive--;
     }
-
+    //starts the wave
     private IEnumerator StartWave()
     {
         yield return new WaitForSeconds(timeBetweenWaves);
         isSpawning = true;
         enemiesLeftToSpawn = EnemiesPerWave();
     }
-
+    //spawns the enemy
     private void SpawnEnemy()
     {
         GameObject prefabToSpawn = enemyPrefabs[Random.Range(0, enemySelectMax)];
         Instantiate(prefabToSpawn, LevelManager.main.startPoint.position, Quaternion.identity);
     }
-
+    //calculates the enemy per wave
     private int EnemiesPerWave()
     {
         return Mathf.RoundToInt(baseEnemies * Mathf.Pow(currentWave, difficultyScalingFactor));

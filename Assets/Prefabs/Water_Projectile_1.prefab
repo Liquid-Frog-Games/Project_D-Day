@@ -28,13 +28,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9019253044709291084}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: 0.7074935, w: 0.7067199}
   m_LocalPosition: {x: -11.644761, y: -0.6668711, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90.063}
 --- !u!212 &7227341761207009
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -164,3 +164,5 @@ MonoBehaviour:
   rb: {fileID: 2101086982044799146}
   bulletSpeed: 4
   bulletDmg: 1
+  bulletRotationPoint: {fileID: 6654478054750817930}
+  rotationSpeed: 10000

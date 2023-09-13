@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class BulletHandler : MonoBehaviour
@@ -21,9 +22,13 @@ public class BulletHandler : MonoBehaviour
     private void FixedUpdate()
     {
         if (!target) return;
+        transform.position = Vector3.MoveTowards(transform.position, target.transform.position, bulletSpeed * Time.deltaTime);
 
-        Vector2 direction = (target.position - transform.position).normalized;
-        rb.velocity = direction * bulletSpeed;
+        Vector2 direction = target.transform.position - transform.position;
+
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+
+        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
     }
 
     private void OnCollisionEnter2D(Collision2D other)

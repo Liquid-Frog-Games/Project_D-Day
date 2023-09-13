@@ -24,7 +24,6 @@ public class UnitManager : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
         Debug.Log("OnPointerDown");
         SpawnUnit();
-     
     }
 
     public void OnPointerUp(PointerEventData eventData)
@@ -35,6 +34,5 @@ public class UnitManager : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     private void SpawnUnit()
     {
         Instantiate(unit, transform.position, transform.rotation);
-     
     }
 }

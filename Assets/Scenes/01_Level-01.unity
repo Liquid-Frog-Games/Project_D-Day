@@ -19610,7 +19610,7 @@ MonoBehaviour:
   - {fileID: 2061809438}
   - {fileID: 1978490541}
   - {fileID: 1153237145}
-  gameOverMenuUI: {fileID: 1837015439}
+  gameOverMenuUI: {fileID: 2117187075}
   lives: 0
   coins: 0
 --- !u!114 &1743109326

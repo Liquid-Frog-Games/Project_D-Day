@@ -16,6 +16,10 @@ PrefabInstance:
       propertyPath: currencyWorth
       value: 25
       objectReference: {fileID: 0}
+    - target: {fileID: -681690324717421032, guid: a4090707ad4bc45f88bf6600518748db, type: 3}
+      propertyPath: hitPoints
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4246695697564967024, guid: a4090707ad4bc45f88bf6600518748db, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -55,6 +59,10 @@ PrefabInstance:
     - target: {fileID: 4246695697564967024, guid: a4090707ad4bc45f88bf6600518748db, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5217943998689456521, guid: a4090707ad4bc45f88bf6600518748db, type: 3}
+      propertyPath: moveSpeed
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5245579872273966062, guid: a4090707ad4bc45f88bf6600518748db, type: 3}
       propertyPath: m_Color.b

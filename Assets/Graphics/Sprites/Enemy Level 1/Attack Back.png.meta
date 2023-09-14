@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1a69f892a399719419498ec3fe81ce6c
+guid: 2f71bd91774276c40b786feb0f1f7a26
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -149,85 +149,127 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Walk Back_0
+      name: Attack Back_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 64
         height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0f3f9b8d58edded4583761197787c89b
-      internalID: -7103789
+      spriteID: 5c73c4cc01ea0914694733ad955ac896
+      internalID: -978452714
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Walk Back_1
+      name: Attack Back_1
       rect:
         serializedVersion: 2
         x: 64
         y: 0
         width: 64
         height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 80d65b2a72b1ba744ae4661371829998
-      internalID: 1223527020
+      spriteID: d8f50f52ec8f9bf4f846ff24f1ceea99
+      internalID: 1488926907
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Walk Back_2
+      name: Attack Back_2
       rect:
         serializedVersion: 2
         x: 128
         y: 0
         width: 64
         height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 316bfc10a51edab4fa90056da84e5781
-      internalID: 739418276
+      spriteID: 82ce626b032c48f4fbd0fc9f46982a50
+      internalID: 814297055
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Walk Back_3
+      name: Attack Back_3
       rect:
         serializedVersion: 2
         x: 192
         y: 0
         width: 64
         height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e730b2edd1764cb42905f1b7bf2768e2
-      internalID: 1497195058
+      spriteID: 26903b49c61516747a08e22a6d5e68e0
+      internalID: -481140557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack Back_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 864c4b6ddac38b9499f98c4bd9f47e8e
+      internalID: -1294919739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack Back_5
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f3a4f065d5764a4eadbe6f58978fc6d
+      internalID: 1875855107
       vertices: []
       indices: 
       edges: []
@@ -243,10 +285,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Walk Back_0: -7103789
-      Walk Back_1: 1223527020
-      Walk Back_2: 739418276
-      Walk Back_3: 1497195058
+      Attack Back_0: -978452714
+      Attack Back_1: 1488926907
+      Attack Back_2: 814297055
+      Attack Back_3: -481140557
+      Attack Back_4: -1294919739
+      Attack Back_5: 1875855107
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

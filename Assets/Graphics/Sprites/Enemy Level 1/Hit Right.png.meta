@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1a69f892a399719419498ec3fe81ce6c
+guid: 738f63ec90c3fd24b9e33e5513cd295d
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -149,85 +149,127 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Walk Back_0
+      name: Hit Right_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 64
         height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0f3f9b8d58edded4583761197787c89b
-      internalID: -7103789
+      spriteID: bfb1a99084fdc844993691e2901565bf
+      internalID: 1434488547
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Walk Back_1
+      name: Hit Right_1
       rect:
         serializedVersion: 2
         x: 64
         y: 0
         width: 64
         height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 80d65b2a72b1ba744ae4661371829998
-      internalID: 1223527020
+      spriteID: 39d2d2bb67e4a7447b407040943090af
+      internalID: -1831752389
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Walk Back_2
+      name: Hit Right_2
       rect:
         serializedVersion: 2
         x: 128
         y: 0
         width: 64
         height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 316bfc10a51edab4fa90056da84e5781
-      internalID: 739418276
+      spriteID: ea7c58863dff2b347b4ba7155e4965de
+      internalID: -1942237157
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Walk Back_3
+      name: Hit Right_3
       rect:
         serializedVersion: 2
         x: 192
         y: 0
         width: 64
         height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e730b2edd1764cb42905f1b7bf2768e2
-      internalID: 1497195058
+      spriteID: e8cf78aae290cd44a9d06f167d31fa17
+      internalID: 721477101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hit Right_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39a7bcacf62fd514ba30bdc9ee8be91c
+      internalID: -1158953319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hit Right_5
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19f4920bedca40d4db6ac35fdc4f774f
+      internalID: -1394007649
       vertices: []
       indices: 
       edges: []
@@ -243,10 +285,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Walk Back_0: -7103789
-      Walk Back_1: 1223527020
-      Walk Back_2: 739418276
-      Walk Back_3: 1497195058
+      Hit Right_0: 1434488547
+      Hit Right_1: -1831752389
+      Hit Right_2: -1942237157
+      Hit Right_3: 721477101
+      Hit Right_4: -1158953319
+      Hit Right_5: -1394007649
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

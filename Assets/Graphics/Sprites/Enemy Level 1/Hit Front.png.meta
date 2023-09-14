@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1a69f892a399719419498ec3fe81ce6c
+guid: afdeb361115abdc44b22095944028038
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -149,85 +149,127 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Walk Back_0
+      name: Hit Front_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 64
         height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0f3f9b8d58edded4583761197787c89b
-      internalID: -7103789
+      spriteID: 1ced281e10b74e347a1619b31568ebf8
+      internalID: 1076288238
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Walk Back_1
+      name: Hit Front_1
       rect:
         serializedVersion: 2
         x: 64
         y: 0
         width: 64
         height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 80d65b2a72b1ba744ae4661371829998
-      internalID: 1223527020
+      spriteID: 5f8deb410b60a2f4ea96404119722dd9
+      internalID: -1600716266
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Walk Back_2
+      name: Hit Front_2
       rect:
         serializedVersion: 2
         x: 128
         y: 0
         width: 64
         height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 316bfc10a51edab4fa90056da84e5781
-      internalID: 739418276
+      spriteID: 9dfc528c24d157d469590dffa6a502f7
+      internalID: 456138051
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Walk Back_3
+      name: Hit Front_3
       rect:
         serializedVersion: 2
         x: 192
         y: 0
         width: 64
         height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e730b2edd1764cb42905f1b7bf2768e2
-      internalID: 1497195058
+      spriteID: 4a3e7f34685dc854b9dfb7ef907490f8
+      internalID: -1740696332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hit Front_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78802b1025f7d324a83d92c7b1db08ed
+      internalID: 2045497832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hit Front_5
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a99e7bb60aeb7df49a3ad900cbf2f8a2
+      internalID: 998315067
       vertices: []
       indices: 
       edges: []
@@ -243,10 +285,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Walk Back_0: -7103789
-      Walk Back_1: 1223527020
-      Walk Back_2: 739418276
-      Walk Back_3: 1497195058
+      Hit Front_0: 1076288238
+      Hit Front_1: -1600716266
+      Hit Front_2: 456138051
+      Hit Front_3: -1740696332
+      Hit Front_4: 2045497832
+      Hit Front_5: 998315067
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

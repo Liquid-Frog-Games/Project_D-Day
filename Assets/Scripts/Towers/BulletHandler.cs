@@ -19,7 +19,7 @@ public class BulletHandler : MonoBehaviour
         target = _target;
     }
 
-    private void FixedUpdate()
+    private void Start()
     {
         if (!target) return;
         transform.position = Vector3.MoveTowards(transform.position, target.transform.position, bulletSpeed * Time.deltaTime);
@@ -29,6 +29,12 @@ public class BulletHandler : MonoBehaviour
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+    }
+
+    private void Update()
+    {
+        rb.velocity = (transform.forward * bulletSpeed);
+        transform.Translate(transform.up * (bulletSpeed * Time.deltaTime));       //it works BUT! it is to late so it will shoot at the last position
     }
 
     private void OnCollisionEnter2D(Collision2D other)

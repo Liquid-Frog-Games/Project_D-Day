@@ -33,8 +33,7 @@ public class BulletHandler : MonoBehaviour
 
     private void Update()
     {
-        rb.velocity = (transform.forward * bulletSpeed);
-        transform.Translate(transform.up * (bulletSpeed * Time.deltaTime));       //it works BUT! it is to late so it will shoot at the last position
+        rb.velocity = (transform.right * bulletSpeed);  //it works BUT! its aim calculations are weird so gotta check that before merge.
     }
 
     private void OnCollisionEnter2D(Collision2D other)

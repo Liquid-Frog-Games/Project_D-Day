@@ -19,6 +19,15 @@ public class BulletHandler : MonoBehaviour
         target = _target;
     }
 
+    private void Update()
+    {
+        //Destroy bullet if there is no target
+        if (!target)
+        {
+            Destroy(gameObject);
+        }
+    }
+
     private void FixedUpdate()
     {
         if (!target) return;
@@ -31,6 +40,7 @@ public class BulletHandler : MonoBehaviour
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
     }
 
+    //On collision, check that it is not a plot, then activate the 
     private void OnCollisionEnter2D(Collision2D other)
     {
 		if(other.gameObject.layer == 8) return;

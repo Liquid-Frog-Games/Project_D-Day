@@ -19,16 +19,7 @@ public class BulletHandler : MonoBehaviour
         target = _target;
     }
 
-    private void Update()
-    {
-        //Destroy bullet if there is no target
-        if (!target)
-        {
-            Destroy(gameObject);
-        }
-    }
-
-    private void FixedUpdate()
+    private void Start()
     {
         if (!target) return;
         transform.position = Vector3.MoveTowards(transform.position, target.transform.position, bulletSpeed * Time.deltaTime);
@@ -40,7 +31,20 @@ public class BulletHandler : MonoBehaviour
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
     }
 
-    //On collision, check that it is not a plot, then activate the 
+    private void Update()
+    {
+        //Destroy bullet if there is no target
+        if (!target)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    private void Update()
+    {
+        rb.velocity = (transform.right * bulletSpeed);  
+    }
+
     private void OnCollisionEnter2D(Collision2D other)
     {
 		if(other.gameObject.layer == 8) return;

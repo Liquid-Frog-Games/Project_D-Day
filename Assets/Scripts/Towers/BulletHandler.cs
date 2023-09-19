@@ -33,7 +33,16 @@ public class BulletHandler : MonoBehaviour
 
     private void Update()
     {
-        rb.velocity = (transform.right * bulletSpeed);  //it works BUT! its aim calculations are weird so gotta check that before merge.
+        //Destroy bullet if there is no target
+        if (!target)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    private void Update()
+    {
+        rb.velocity = (transform.right * bulletSpeed);  
     }
 
     private void OnCollisionEnter2D(Collision2D other)

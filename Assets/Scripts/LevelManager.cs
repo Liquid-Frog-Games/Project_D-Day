@@ -46,10 +46,14 @@ public class LevelManager : MonoBehaviour
         else
         {
             Debug.Log("You don't have enough coins to purchase this item.");
-
-            StartCoroutine(sendNotification("You dont have enough coins for this purchase", 3));   //Starts the notification below
             return false;
+            
         }
+    }
+
+    public void StartNotification()
+    {
+        StartCoroutine(sendNotification("You dont have enough coins for this purchase", 3));   //Starts the notification below
     }
 
     public void GameOver()
@@ -59,7 +63,7 @@ public class LevelManager : MonoBehaviour
         gameIsPaused = true;
     }
 
-    private IEnumerator sendNotification(string text, int time)
+    public IEnumerator sendNotification(string text, int time)
     {
         Debug.Log("I work");
         notificationText.text = text;            //set the text in the screen to the given text

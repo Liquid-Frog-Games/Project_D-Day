@@ -14468,7 +14468,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1263834721
 RectTransform:
   m_ObjectHideFlags: 0
@@ -19205,9 +19205,9 @@ MonoBehaviour:
   - {fileID: 1978490541}
   - {fileID: 1153237145}
   gameOverMenuUI: {fileID: 2117187075}
-  noMoneyUI: {fileID: 1263834720}
   lives: 0
   coins: 0
+  notificationText: {fileID: 1810012062}
 --- !u!114 &1743109326
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19970,7 +19970,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: You dont have enough money for this purchase
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cebe8652f81cc414a93ab140d0ac2eea, type: 2}
   m_sharedMaterial: {fileID: -962754309803293182, guid: cebe8652f81cc414a93ab140d0ac2eea, type: 2}

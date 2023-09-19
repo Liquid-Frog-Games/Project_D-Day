@@ -15,6 +15,7 @@ public class PlotHandler : MonoBehaviour
     void Start()
     {
         startColor = sr.color;
+
     }
 
     private bool IsPointerOverUIObject()
@@ -45,6 +46,7 @@ public class PlotHandler : MonoBehaviour
         Tower towerToBuild = BuildManager.main.GetSelectedTower();
             if (towerToBuild.cost > LevelManager.main.coins)       //TODO: Replace with UI message
             {
+                LevelManager.main.StartNotification();
                 Debug.Log("You dont have enough coins for this towwer");
                 return;
             }

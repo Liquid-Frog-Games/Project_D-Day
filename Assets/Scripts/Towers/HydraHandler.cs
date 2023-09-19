@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-public class TurretHandler : MonoBehaviour
+public class HydraHandler : MonoBehaviour
 {
     [Header("Attributes")]
     [SerializeField] private float targetingRange = 3f;
@@ -40,6 +40,7 @@ public class TurretHandler : MonoBehaviour
             if (timeUntilFire >= 1f / bps)
             {
                 Shoot();
+                Invoke("Shoot", 0.2f);
                 timeUntilFire = 0f;
             }
         }
@@ -82,6 +83,6 @@ public class TurretHandler : MonoBehaviour
     {
         GameObject bulletObj = Instantiate(bulletPrefab, firingPoint.position, Quaternion.identity);
         BulletHandler bulletScript = bulletObj.GetComponent<BulletHandler>();
-        bulletScript.SetTarget(target, 1f);         //target and damage amount have to be passed
+        bulletScript.SetTarget(target, 0.6f);    //target and damage amount have to be passed
     }
 }

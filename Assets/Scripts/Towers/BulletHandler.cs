@@ -33,16 +33,12 @@ public class BulletHandler : MonoBehaviour
 
     private void Update()
     {
-        //Destroy bullet if there is no target
+        rb.velocity = (transform.right * bulletSpeed);
+
         if (!target)
         {
             Destroy(gameObject);
         }
-    }
-
-    private void Update()
-    {
-        rb.velocity = (transform.right * bulletSpeed);  
     }
 
     private void OnCollisionEnter2D(Collision2D other)

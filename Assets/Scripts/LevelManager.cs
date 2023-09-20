@@ -24,7 +24,7 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
-        lives = 100f;
+        lives = 200f;
         coins = 100;
     }
 

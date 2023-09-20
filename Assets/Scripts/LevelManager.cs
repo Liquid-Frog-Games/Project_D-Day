@@ -2,8 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.UI;
-using TMPro;
 
 public class LevelManager : MonoBehaviour
 {
@@ -17,7 +15,6 @@ public class LevelManager : MonoBehaviour
 
     public int lives;
     public int coins;
-    public TextMeshProUGUI notificationText;
 
     private void Awake()
     {
@@ -45,15 +42,9 @@ public class LevelManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("You don't have enough coins to purchase this item.");
+            Debug.Log("You don't have enough coins to purchase this item."); //TODO: Replace with UI message
             return false;
-            
         }
-    }
-
-    public void StartNotification()
-    {
-        StartCoroutine(sendNotification("You dont have enough coins for this purchase", 3));   //Starts the notification below
     }
 
     public void GameOver()
@@ -61,13 +52,5 @@ public class LevelManager : MonoBehaviour
         gameOverMenuUI.SetActive(true);
         Time.timeScale = 0f;
         gameIsPaused = true;
-    }
-
-    public IEnumerator sendNotification(string text, int time)
-    {
-        Debug.Log("I work");
-        notificationText.text = text;            //set the text in the screen to the given text
-        yield return new WaitForSeconds(time);      //wait given seconds
-        notificationText.text = "";                  //set text back to ""
     }
 }

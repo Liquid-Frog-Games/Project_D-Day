@@ -10,6 +10,7 @@ public class EnemySpawner : MonoBehaviour
 
     [Header("References")]
     [SerializeField] private GameObject[] enemyPrefabs;
+    [SerializeField] private GameObject starWaveBtn;
 
     [Header("Attributes")]
     [SerializeField] private int baseEnemies;
@@ -36,7 +37,6 @@ public class EnemySpawner : MonoBehaviour
         enemiesPerSecond = 0.5f;
         timeBetweenWaves = 5f;
         difficultyScalingFactor = 0.75f;
-        StartCoroutine(StartWave());
         onEnemyDestroy.AddListener(EnemyDestroyed);
     }
 
@@ -66,6 +66,13 @@ public class EnemySpawner : MonoBehaviour
         {
             EndWave();
         }
+    }
+
+    //Startwave for the button
+    public void StartWaveButton()
+    {
+        StartCoroutine(StartWave());
+        starWaveBtn.SetActive(false);
     }
 
     //called at the end of the wave

@@ -65,7 +65,6 @@ public class LevelManager : MonoBehaviour
 
     public IEnumerator sendNotification(string text, int time)
     {
-        Debug.Log("I work");
         notificationText.text = text;            //set the text in the screen to the given text
         yield return new WaitForSeconds(time);      //wait given seconds
         notificationText.text = "";                  //set text back to ""

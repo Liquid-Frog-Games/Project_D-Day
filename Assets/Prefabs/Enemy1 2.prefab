@@ -53,16 +53,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5852211543595255129, guid: 4e06b232a05a74512a79770204056ecf, type: 3}
+      propertyPath: dmg
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5852211543595255129, guid: 4e06b232a05a74512a79770204056ecf, type: 3}
       propertyPath: hitPoints
-      value: 3
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 5852211543595255129, guid: 4e06b232a05a74512a79770204056ecf, type: 3}
       propertyPath: currencyWorth
-      value: 15
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 8352929708561886502, guid: 4e06b232a05a74512a79770204056ecf, type: 3}
       propertyPath: moveSpeed
-      value: 1.5
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

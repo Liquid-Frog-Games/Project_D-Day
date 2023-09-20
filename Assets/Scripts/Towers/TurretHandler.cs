@@ -45,6 +45,7 @@ public class TurretHandler : MonoBehaviour
         }
     }
 
+    //Enable the range circle in Unity editor, NOTE: THIS MUST BE DISABLED FOR BUILDS, IT WILL CRASH OTHERWISE
     #if UNITY_Editor
     private void OnDrawGizmosSelected()
     {
@@ -82,6 +83,6 @@ public class TurretHandler : MonoBehaviour
     {
         GameObject bulletObj = Instantiate(bulletPrefab, firingPoint.position, Quaternion.identity);
         BulletHandler bulletScript = bulletObj.GetComponent<BulletHandler>();
-        bulletScript.SetTarget(target, 1f);         //target and damage amount have to be passed
+        bulletScript.SetTarget(target, 50f);         //target and damage amount have to be passed
     }
 }

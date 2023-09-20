@@ -46,6 +46,7 @@ public class HydraHandler : MonoBehaviour
         }
     }
 
+    //Enable the range circle in Unity editor, NOTE: THIS MUST BE DISABLED FOR BUILDS, IT WILL CRASH OTHERWISE
     #if UNITY_Editor
     private void OnDrawGizmosSelected()
     {
@@ -83,6 +84,6 @@ public class HydraHandler : MonoBehaviour
     {
         GameObject bulletObj = Instantiate(bulletPrefab, firingPoint.position, Quaternion.identity);
         BulletHandler bulletScript = bulletObj.GetComponent<BulletHandler>();
-        bulletScript.SetTarget(target, 0.6f);    //target and damage amount have to be passed
+        bulletScript.SetTarget(target, 27.5f);    //target and damage amount have to be passed
     }
 }

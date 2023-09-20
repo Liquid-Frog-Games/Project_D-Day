@@ -4665,7 +4665,7 @@ GameObject:
   - component: {fileID: 1612699785}
   - component: {fileID: 1612699784}
   m_Layer: 0
-  m_Name: Walk Left_0 (1)
+  m_Name: Complete Transistions
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

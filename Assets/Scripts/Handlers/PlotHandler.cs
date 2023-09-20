@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -8,7 +9,7 @@ public class PlotHandler : MonoBehaviour
     public SpriteRenderer sprite;
 
     public GameObject[] icons;
-
+    private GameObject tower;
 
 
     public Canvas canvas;
@@ -18,16 +19,30 @@ public class PlotHandler : MonoBehaviour
     private void Start()
     {
         isSelected = false;
-        canvas.GetComponent<CanvasGroup>().alpha = 0;
+        canvasGroupOff();
+
     }
 
+    private void canvasGroupOff()
+    {
+        canvas.GetComponent<CanvasGroup>().alpha = 0;
+        canvas.GetComponent<CanvasGroup>().interactable = false;
+        canvas.GetComponent<CanvasGroup>().blocksRaycasts = false;
+    }
+
+    private void canvasGroupOn()
+    {
+        canvas.GetComponent<CanvasGroup>().alpha = 1;
+        canvas.GetComponent<CanvasGroup>().interactable = true;
+        canvas.GetComponent<CanvasGroup>().blocksRaycasts = true;
+    }
     public void OnMouseDown()
     {
         if(isSelected == false)
         {
             Debug.Log("Work please");
             isSelected = true;
-            canvas.GetComponent<CanvasGroup>().alpha = 1;
+            canvasGroupOn();
             return;
 
         }
@@ -35,16 +50,44 @@ public class PlotHandler : MonoBehaviour
         {
             Debug.Log("Turned off");
             isSelected= false;
-            canvas.GetComponent<CanvasGroup>().alpha = 0;
+            canvasGroupOff();
             return;
         }
+    }
+    private bool IsPointerOverUIObject()
+        {
+            PointerEventData eventDataCurrentPosition = new PointerEventData(EventSystem.current);
+            eventDataCurrentPosition.position = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+            List<RaycastResult> results = new List<RaycastResult>();
+            EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
+            return results.Count > 0;
+        }
+
+    public void PlaceTower()
+    { 
+        if(IsPointerOverUIObject())
+        {
+            Tower towerToBuild = BuildManager.main.GetSelectedTower();
+            if (towerToBuild.cost > LevelManager.main.coins)       //TODO: Replace with UI message
+            {
+                Debug.Log("You dont have enough coins for this towwer");
+                return;
+            }
+            LevelManager.main.SpendCurrency(towerToBuild.cost);
+            tower = Instantiate(towerToBuild.prefab, transform.position, Quaternion.identity);
+            BuildManager.main.SetSelectedTower(-1);
+            canvasGroupOff();
+            return;
+        }
+           
+            return;
     }
     /*
     [Header("References")]
     [SerializeField] private SpriteRenderer sr;
     [SerializeField] private Color hoverColor;
 
-    private GameObject tower;
+    
     private Color startColor;
 
     void Start()
@@ -52,14 +95,7 @@ public class PlotHandler : MonoBehaviour
         startColor = sr.color;
     }
 
-    private bool IsPointerOverUIObject()
-    {
-        PointerEventData eventDataCurrentPosition = new PointerEventData(EventSystem.current);
-        eventDataCurrentPosition.position = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
-        List<RaycastResult> results = new List<RaycastResult>();
-        EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
-        return results.Count > 0;
-    }
+    
     private void OnMouseEnter()
     {
         sr.color = hoverColor;

@@ -10,13 +10,14 @@ public class BulletHandler : MonoBehaviour
 
     [Header("Attributes")]
     [SerializeField] private float bulletSpeed = 5f;
-    [SerializeField] private int bulletDmg = 1;
+    private float bulletDmg;
 
     private Transform target;
 
-    public void SetTarget(Transform _target)
+    public void SetTarget(Transform _target, float _dmg)
     {
         target = _target;
+        bulletDmg = _dmg;
     }
 
     private void Start()
@@ -33,16 +34,12 @@ public class BulletHandler : MonoBehaviour
 
     private void Update()
     {
-        //Destroy bullet if there is no target
+        rb.velocity = (transform.right * bulletSpeed);
+
         if (!target)
         {
             Destroy(gameObject);
         }
-    }
-
-    private void Update()
-    {
-        rb.velocity = (transform.right * bulletSpeed);  
     }
 
     private void OnCollisionEnter2D(Collision2D other)

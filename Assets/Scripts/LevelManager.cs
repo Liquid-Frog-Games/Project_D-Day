@@ -13,7 +13,7 @@ public class LevelManager : MonoBehaviour
     public GameObject gameOverMenuUI;
     public static UnityEvent e_GameOver = new UnityEvent();
 
-    public int lives;
+    public float lives;
     public int coins;
 
     private void Awake()
@@ -24,7 +24,7 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
-        lives = 100;
+        lives = 100f;
         coins = 100;
     }
 

@@ -5,6 +5,41 @@ using UnityEngine.EventSystems;
 
 public class PlotHandler : MonoBehaviour
 {
+    public SpriteRenderer sprite;
+
+    public GameObject[] icons;
+
+
+
+    public Canvas canvas;
+
+    public bool isSelected;
+
+    private void Start()
+    {
+        isSelected = false;
+        canvas.GetComponent<CanvasGroup>().alpha = 0;
+    }
+
+    public void OnMouseDown()
+    {
+        if(isSelected == false)
+        {
+            Debug.Log("Work please");
+            isSelected = true;
+            canvas.GetComponent<CanvasGroup>().alpha = 1;
+            return;
+
+        }
+        if(isSelected == true)
+        {
+            Debug.Log("Turned off");
+            isSelected= false;
+            canvas.GetComponent<CanvasGroup>().alpha = 0;
+            return;
+        }
+    }
+    /*
     [Header("References")]
     [SerializeField] private SpriteRenderer sr;
     [SerializeField] private Color hoverColor;
@@ -54,4 +89,5 @@ public class PlotHandler : MonoBehaviour
         }
         return;
     }
+    */
 }

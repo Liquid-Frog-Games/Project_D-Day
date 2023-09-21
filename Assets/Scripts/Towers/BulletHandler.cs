@@ -34,7 +34,8 @@ public class BulletHandler : MonoBehaviour
 
     private void Update()
     {
-        rb.velocity = (transform.right * bulletSpeed);
+        rb.velocity = (transform.right * bulletSpeed);  
+        //Destroy bullet if there is no target
 
         if (!target)
         {

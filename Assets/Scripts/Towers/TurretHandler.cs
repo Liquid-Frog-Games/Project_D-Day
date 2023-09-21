@@ -10,6 +10,7 @@ public class TurretHandler : MonoBehaviour
     [SerializeField] private float rotationSpeed = 200f;
     [SerializeField] private float bps = 1f;        // Bullet per second
 
+    public bool bought = false;
 
     [Header("References")]
     [SerializeField] private Transform turretRotationPoint;
@@ -22,27 +23,32 @@ public class TurretHandler : MonoBehaviour
 
     void Update()
     {
-        if (target == null)
+        if (bought == true)
         {
-            FindTarget();
-            return;
-        }
-
-        RotateTowardsTarget();
-        if (!CheckTargetIsInRange())
-        {
-            target = null;
-        }
-        else
-        {
-            timeUntilFire += Time.deltaTime;
-
-            if (timeUntilFire >= 1f / bps)
+            if (target == null)
             {
-                Shoot();
-                timeUntilFire = 0f;
+                FindTarget();
+                return;
+            }
+
+            RotateTowardsTarget();
+            if (!CheckTargetIsInRange())
+            {
+                target = null;
+            }
+            else
+            {
+                timeUntilFire += Time.deltaTime;
+
+                if (timeUntilFire >= 1f / bps)
+                {
+                    Shoot();
+                    timeUntilFire = 0f;
+                }
             }
         }
+        return;
+        
     }
 
     //Enable the range circle in Unity editor, NOTE: THIS MUST BE DISABLED FOR BUILDS, IT WILL CRASH OTHERWISE

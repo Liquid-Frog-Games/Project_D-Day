@@ -15,6 +15,7 @@ public class LevelManager : MonoBehaviour
     public GameObject gameOverMenuUI;
     public static UnityEvent e_GameOver = new UnityEvent();
 
+    [Header("References")]
     public float lives;
     public int coins;
     public TextMeshProUGUI notificationText;

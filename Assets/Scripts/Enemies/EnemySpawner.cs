@@ -11,6 +11,8 @@ public class EnemySpawner : MonoBehaviour
     [Header("References")]
     [SerializeField] private GameObject[] enemyPrefabs;
     [SerializeField] private GameObject starWaveBtn;
+    [SerializeField] private GameObject victoryScreen;
+    public int waveGoal = 1;
 
     [Header("Attributes")]
     [SerializeField] private int baseEnemies;
@@ -80,9 +82,27 @@ public class EnemySpawner : MonoBehaviour
     {
         isSpawning = false;
         timeSinceLastSpawn = 0f;
+
+        if (currentWave == waveGoal)
+        {
+            LevelComplete();
+            return;
+        }
+
+        NextWave();
+    }
+
+    public void NextWave()
+    {
         currentWave++;
         roundUI.text = currentWave.ToString();
         WaveDifficulty();
+    }
+
+    private void LevelComplete()
+    {
+        Time.timeScale = 0f;
+        victoryScreen.SetActive(true);
     }
 
     //increases the wave difficulty if the wave is an even number

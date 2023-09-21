@@ -6,16 +6,17 @@ public class HealthHandler : MonoBehaviour
 {
     [Header("Attributes")]
     [SerializeField] private int currencyWorth = 50;
-    public int hitPoints = 1;
+    public float hitPoints = 1f;
+    public float dmg = 1f;
 
     private bool isDestroyed = false; 
 
-
-    public void TakeDamage(int dmg)
+    //When hit by a bullet, take damage according to the bullet colliding
+    public void TakeDamage(float dmg)
     {
         hitPoints -= dmg;
 
-        if (hitPoints <= 0 && !isDestroyed)
+        if (hitPoints <= 0f && !isDestroyed)
         {
             EnemySpawner.onEnemyDestroy.Invoke();
             LevelManager.main.IncreaseCurrency(currencyWorth);

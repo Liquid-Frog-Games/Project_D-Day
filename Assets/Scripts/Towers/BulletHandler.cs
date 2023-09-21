@@ -10,13 +10,14 @@ public class BulletHandler : MonoBehaviour
 
     [Header("Attributes")]
     [SerializeField] private float bulletSpeed = 5f;
-    [SerializeField] private int bulletDmg = 1;
+    private float bulletDmg;
 
     private Transform target;
 
-    public void SetTarget(Transform _target)
+    public void SetTarget(Transform _target, float _dmg)
     {
         target = _target;
+        bulletDmg = _dmg;
     }
 
     private void Start()
@@ -35,6 +36,7 @@ public class BulletHandler : MonoBehaviour
     {
         rb.velocity = (transform.right * bulletSpeed);  
         //Destroy bullet if there is no target
+
         if (!target)
         {
             Destroy(gameObject);

@@ -6,7 +6,6 @@ using UnityEngine.EventSystems;
 
 public class BuildManager : MonoBehaviour
 {
-
     public static BuildManager main;
 
     [Header("References")]

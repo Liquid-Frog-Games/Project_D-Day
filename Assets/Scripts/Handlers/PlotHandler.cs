@@ -45,18 +45,18 @@ public class PlotHandler : MonoBehaviour
 
     private void PreviewCanvasGroupOff()
     {
-        shopCanvas.GetComponent<CanvasGroup>().alpha = 0;
-        shopCanvas.GetComponent<CanvasGroup>().interactable = false;
-        shopCanvas.GetComponent<CanvasGroup>().blocksRaycasts = false;
+        previewCanvas.GetComponent<CanvasGroup>().alpha = 0;
+        previewCanvas.GetComponent<CanvasGroup>().interactable = false;
+        previewCanvas.GetComponent<CanvasGroup>().blocksRaycasts = false;
     }
 
     
     private void PreviewCanvasGroupOn()
     {
         //turns the UI on
-        shopCanvas.GetComponent<CanvasGroup>().alpha = 1;
-        shopCanvas.GetComponent<CanvasGroup>().interactable = true;
-        shopCanvas.GetComponent<CanvasGroup>().blocksRaycasts = true;
+        previewCanvas.GetComponent<CanvasGroup>().alpha = 1;
+        previewCanvas.GetComponent<CanvasGroup>().interactable = true;
+        previewCanvas.GetComponent<CanvasGroup>().blocksRaycasts = true;
     }
 
     //when the player clicks on the plot
@@ -89,6 +89,16 @@ public class PlotHandler : MonoBehaviour
 
     public void PreviewTower()
     {
+        
+        {
+            
+            
+            PreviewCanvasGroupOn();
+        }
+        return;
+    }
+    public void PlaceTower()
+    {
         if (IsPointerOverUIObject())
         {
             Tower towerToBuild = BuildManager.main.GetSelectedTower();
@@ -99,17 +109,12 @@ public class PlotHandler : MonoBehaviour
             }
             tower = Instantiate(towerToBuild.prefab, transform.position, Quaternion.identity);
             ShopCanvasGroupOff();
-            PreviewCanvasGroupOn();
-        }
-        return;
-    }
-    public void PlaceTower()
-    { 
-       
             LevelManager.main.SpendCurrency(towerToBuild.cost);
             BuildManager.main.SetSelectedTower(-1);
             ShopCanvasGroupOff();
             return;
+        }
+        return;
     }
     /*
     [Header("References")]

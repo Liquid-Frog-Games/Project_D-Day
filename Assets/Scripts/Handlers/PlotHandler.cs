@@ -12,37 +12,61 @@ public class PlotHandler : MonoBehaviour
     private GameObject tower;
 
 
-    public Canvas canvas;
+    public Canvas shopCanvas;
+    public Canvas previewCanvas;
 
     public bool isSelected;
 
     private void Start()
     {
         isSelected = false;
-        canvasGroupOff();
+        ShopCanvasGroupOff();
+        PreviewCanvasGroupOff();
 
     }
+    //ui for the shop 
+   
+    private void ShopCanvasGroupOff()
+    { 
+        //turns the shop UI off
+        shopCanvas.GetComponent<CanvasGroup>().alpha = 0;
+        shopCanvas.GetComponent<CanvasGroup>().interactable = false;
+        shopCanvas.GetComponent<CanvasGroup>().blocksRaycasts = false;
+    }
 
-    private void canvasGroupOff()
+    
+    private void ShopCanvasGroupOn()
+    { //turns the UI on
+        shopCanvas.GetComponent<CanvasGroup>().alpha = 1;
+        shopCanvas.GetComponent<CanvasGroup>().interactable = true;
+        shopCanvas.GetComponent<CanvasGroup>().blocksRaycasts = true;
+    }
+    //ui for the confirm or decline button
+
+    private void PreviewCanvasGroupOff()
     {
-        canvas.GetComponent<CanvasGroup>().alpha = 0;
-        canvas.GetComponent<CanvasGroup>().interactable = false;
-        canvas.GetComponent<CanvasGroup>().blocksRaycasts = false;
+        shopCanvas.GetComponent<CanvasGroup>().alpha = 0;
+        shopCanvas.GetComponent<CanvasGroup>().interactable = false;
+        shopCanvas.GetComponent<CanvasGroup>().blocksRaycasts = false;
     }
 
-    private void canvasGroupOn()
+    
+    private void PreviewCanvasGroupOn()
     {
-        canvas.GetComponent<CanvasGroup>().alpha = 1;
-        canvas.GetComponent<CanvasGroup>().interactable = true;
-        canvas.GetComponent<CanvasGroup>().blocksRaycasts = true;
+        //turns the UI on
+        shopCanvas.GetComponent<CanvasGroup>().alpha = 1;
+        shopCanvas.GetComponent<CanvasGroup>().interactable = true;
+        shopCanvas.GetComponent<CanvasGroup>().blocksRaycasts = true;
     }
+
+    //when the player clicks on the plot
     public void OnMouseDown()
     {
         if(isSelected == false)
         {
             Debug.Log("Work please");
             isSelected = true;
-            canvasGroupOn();
+            ShopCanvasGroupOn();
             return;
 
         }
@@ -50,7 +74,7 @@ public class PlotHandler : MonoBehaviour
         {
             Debug.Log("Turned off");
             isSelected= false;
-            canvasGroupOff();
+            ShopCanvasGroupOff();
             return;
         }
     }
@@ -63,9 +87,9 @@ public class PlotHandler : MonoBehaviour
             return results.Count > 0;
         }
 
-    public void PlaceTower()
-    { 
-        if(IsPointerOverUIObject())
+    public void PreviewTower()
+    {
+        if (IsPointerOverUIObject())
         {
             Tower towerToBuild = BuildManager.main.GetSelectedTower();
             if (towerToBuild.cost > LevelManager.main.coins)       //TODO: Replace with UI message
@@ -73,13 +97,18 @@ public class PlotHandler : MonoBehaviour
                 Debug.Log("You dont have enough coins for this towwer");
                 return;
             }
-            LevelManager.main.SpendCurrency(towerToBuild.cost);
             tower = Instantiate(towerToBuild.prefab, transform.position, Quaternion.identity);
-            BuildManager.main.SetSelectedTower(-1);
-            canvasGroupOff();
-            return;
+            ShopCanvasGroupOff();
+            PreviewCanvasGroupOn();
         }
-           
+        return;
+    }
+    public void PlaceTower()
+    { 
+       
+            LevelManager.main.SpendCurrency(towerToBuild.cost);
+            BuildManager.main.SetSelectedTower(-1);
+            ShopCanvasGroupOff();
             return;
     }
     /*

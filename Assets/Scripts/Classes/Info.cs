@@ -11,7 +11,7 @@ public class Info : MonoBehaviour
 
     private void OnGUI()
     {
-        livesUI.text = LevelManager.main.lives.ToString();
+        livesUI.text = Mathf.Round(LevelManager.main.lives).ToString();
         currencyUI.text = LevelManager.main.coins.ToString();
     }
 }

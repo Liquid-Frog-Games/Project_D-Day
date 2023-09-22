@@ -10,16 +10,17 @@ public class BulletHandler : MonoBehaviour
 
     [Header("Attributes")]
     [SerializeField] private float bulletSpeed = 5f;
-    [SerializeField] private int bulletDmg = 1;
+    private float bulletDmg;
 
     private Transform target;
 
-    public void SetTarget(Transform _target)
+    public void SetTarget(Transform _target, float _dmg)
     {
         target = _target;
+        bulletDmg = _dmg;
     }
 
-    private void FixedUpdate()
+    private void Start()
     {
         if (!target) return;
         transform.position = Vector3.MoveTowards(transform.position, target.transform.position, bulletSpeed * Time.deltaTime);
@@ -31,6 +32,17 @@ public class BulletHandler : MonoBehaviour
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
     }
 
+    private void Update()
+    {
+        rb.velocity = (transform.right * bulletSpeed);  
+        //Destroy bullet if there is no target
+
+        if (!target)
+        {
+            Destroy(gameObject);
+        }
+    }
+    
     private void OnCollisionEnter2D(Collision2D other)
     {
 		if(other.gameObject.layer == 8) return;

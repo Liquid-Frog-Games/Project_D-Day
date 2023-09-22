@@ -13,7 +13,8 @@ public class LevelManager : MonoBehaviour
     public GameObject gameOverMenuUI;
     public static UnityEvent e_GameOver = new UnityEvent();
 
-    public int lives;
+    [Header("References")]
+    public float lives;
     public int coins;
 
     private void Awake()
@@ -24,7 +25,7 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
-        lives = 100;
+        lives = 200f;
         coins = 100;
     }
 
@@ -52,5 +53,12 @@ public class LevelManager : MonoBehaviour
         gameOverMenuUI.SetActive(true);
         Time.timeScale = 0f;
         gameIsPaused = true;
+    }
+
+    public IEnumerator sendNotification(string text, int time)
+    {
+        notificationText.text = text;            //set the text in the screen to the given text
+        yield return new WaitForSeconds(time);      //wait given seconds
+        notificationText.text = "";                  //set text back to ""
     }
 }

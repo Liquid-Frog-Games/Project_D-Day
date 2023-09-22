@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-public class TurretHandler : MonoBehaviour
+public class HydraHandler : MonoBehaviour
 {
     [Header("Attributes")]
     [SerializeField] private float targetingRange = 3f;
     [SerializeField] private float rotationSpeed = 200f;
     [SerializeField] private float bps = 1f;        // Bullet per second
 
-    public bool bought = false;
 
     [Header("References")]
     [SerializeField] private Transform turretRotationPoint;
@@ -23,32 +22,28 @@ public class TurretHandler : MonoBehaviour
 
     void Update()
     {
-        if (bought == true)
+        if (target == null)
         {
-            if (target == null)
-            {
-                FindTarget();
-                return;
-            }
+            FindTarget();
+            return;
+        }
 
-            RotateTowardsTarget();
-            if (!CheckTargetIsInRange())
-            {
-                target = null;
-            }
-            else
-            {
-                timeUntilFire += Time.deltaTime;
+        RotateTowardsTarget();
+        if (!CheckTargetIsInRange())
+        {
+            target = null;
+        }
+        else
+        {
+            timeUntilFire += Time.deltaTime;
 
-                if (timeUntilFire >= 1f / bps)
-                {
-                    Shoot();
-                    timeUntilFire = 0f;
-                }
+            if (timeUntilFire >= 1f / bps)
+            {
+                Shoot();
+                Invoke("Shoot", 0.2f);
+                timeUntilFire = 0f;
             }
         }
-        return;
-        
     }
 
     //Enable the range circle in Unity editor, NOTE: THIS MUST BE DISABLED FOR BUILDS, IT WILL CRASH OTHERWISE
@@ -89,6 +84,6 @@ public class TurretHandler : MonoBehaviour
     {
         GameObject bulletObj = Instantiate(bulletPrefab, firingPoint.position, Quaternion.identity);
         BulletHandler bulletScript = bulletObj.GetComponent<BulletHandler>();
-        bulletScript.SetTarget(target, 50f);         //target and damage amount have to be passed
+        bulletScript.SetTarget(target, 27.5f);    //target and damage amount have to be passed
     }
 }

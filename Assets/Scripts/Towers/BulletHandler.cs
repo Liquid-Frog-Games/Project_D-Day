@@ -42,7 +42,7 @@ public class BulletHandler : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
+    
     private void OnCollisionEnter2D(Collision2D other)
     {
 		if(other.gameObject.layer == 8) return;

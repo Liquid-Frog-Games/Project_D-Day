@@ -116,48 +116,4 @@ public class PlotHandler : MonoBehaviour
         }
         return;
     }
-    /*
-    [Header("References")]
-    [SerializeField] private SpriteRenderer sr;
-    [SerializeField] private Color hoverColor;
-
-    
-    private Color startColor;
-
-    void Start()
-    {
-        startColor = sr.color;
-    }
-
-    
-    private void OnMouseEnter()
-    {
-        sr.color = hoverColor;
-    }
-
-    private void OnMouseExit()
-    {
-        sr.color = startColor;
-    }
-
-    private void OnMouseDown()
-    {
-                   //TODO: Replace return with upgrade options
-        if (tower != null) return;
-  
-        if(IsPointerOverUIObject() == false)
-        {
-        Tower towerToBuild = BuildManager.main.GetSelectedTower();
-            if (towerToBuild.cost > LevelManager.main.coins)
-            {
-                LevelManager.main.StartNotification();
-                return;
-            }
-        LevelManager.main.SpendCurrency(towerToBuild.cost);
-        tower = Instantiate(towerToBuild.prefab, transform.position, Quaternion.identity);
-        BuildManager.main.SetSelectedTower(-1);
-        }
-        return;
-    }
-    */
 }

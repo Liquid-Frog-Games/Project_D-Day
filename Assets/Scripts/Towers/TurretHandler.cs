@@ -60,6 +60,10 @@ public class TurretHandler : MonoBehaviour
     }
     #endif
 
+    public void ToggleActive()
+    {
+        bought = true;
+    }
     private void FindTarget()
     {
         RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, targetingRange, (Vector2)transform.position,

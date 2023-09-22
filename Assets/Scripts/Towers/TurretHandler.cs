@@ -51,6 +51,12 @@ public class TurretHandler : MonoBehaviour
         
     }
 
+    //when a tower is confirmed by the plothandler it will toggle to bought
+    public void ToggleActive()
+    {
+        bought = true;
+    }
+
     //Enable the range circle in Unity editor, NOTE: THIS MUST BE DISABLED FOR BUILDS, IT WILL CRASH OTHERWISE
     #if UNITY_Editor
     private void OnDrawGizmosSelected()

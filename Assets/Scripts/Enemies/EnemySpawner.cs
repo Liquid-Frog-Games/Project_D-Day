@@ -37,6 +37,7 @@ public class EnemySpawner : MonoBehaviour
         baseEnemies = 8;
         enemiesPerSecond = 0.5f;
         timeBetweenWaves = 5f;
+        
         StartCoroutine(StartWave());
 
         onEnemyDestroy.AddListener(EnemyDestroyed);

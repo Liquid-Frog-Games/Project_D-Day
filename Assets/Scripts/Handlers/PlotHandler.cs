@@ -112,8 +112,10 @@ public class PlotHandler : MonoBehaviour
     {
             ShopCanvasGroupOff() ;
             PreviewCanvasGroupOn();
+
             towerToBuild = BuildManager.main.GetSelectedTower();
             if (towerToBuild.cost > LevelManager.main.coins)       //replace with UI message
+
             {
                 Debug.Log("You dont have enough coins for this towwer");
                 CancelTower();

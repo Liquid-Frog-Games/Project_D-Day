@@ -3,17 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-[System.Serializable]
-public class PathChoice
-{
-    public Transform[] waypoints;
-}
-
 public class LevelManager : MonoBehaviour
 {
     public static LevelManager main;
     public Transform startPoint;
-    public PathChoice[] pathChoices;
+    public Transform[] path;
 
     public static bool gameIsPaused = false;
     public GameObject gameOverMenuUI;

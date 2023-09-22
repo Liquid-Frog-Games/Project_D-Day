@@ -5,11 +5,17 @@ using UnityEngine.Events;
 using UnityEngine.UI;
 using TMPro;
 
+[System.Serializable]
+public class PathChoice
+{
+    public Transform[] waypoints;
+}
+
 public class LevelManager : MonoBehaviour
 {
     public static LevelManager main;
     public Transform startPoint;
-    public Transform[] path;
+    public PathChoice[] pathChoices;
 
     public static bool gameIsPaused = false;
     public GameObject gameOverMenuUI;

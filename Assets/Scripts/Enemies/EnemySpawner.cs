@@ -16,7 +16,6 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private int baseEnemies;
     [SerializeField] private float enemiesPerSecond;
     [SerializeField] private float timeBetweenWaves;
-    [SerializeField] private float difficultyScalingFactor;
     [SerializeField] private TextMeshProUGUI roundUI;
 
     public int currentWave = 1;
@@ -36,7 +35,6 @@ public class EnemySpawner : MonoBehaviour
         baseEnemies = 8;
         enemiesPerSecond = 0.5f;
         timeBetweenWaves = 5f;
-        difficultyScalingFactor = 0.75f;
         onEnemyDestroy.AddListener(EnemyDestroyed);
     }
 
@@ -94,10 +92,10 @@ public class EnemySpawner : MonoBehaviour
                 enemySelectMax += 1;
             }
             timeBetweenWaves -= 0.2f;
-            difficultyScalingFactor += 0.25f;
             StartCoroutine(StartWave());
 
         }
+        baseEnemies += 4;
         StartCoroutine(StartWave());
     }
     //on enemy destroyed
@@ -121,7 +119,7 @@ public class EnemySpawner : MonoBehaviour
     //calculates the enemy per wave
     private int EnemiesPerWave()
     {
-        return Mathf.RoundToInt(baseEnemies * Mathf.Pow(currentWave, difficultyScalingFactor));
+        return Mathf.RoundToInt(baseEnemies);
     }
 
 

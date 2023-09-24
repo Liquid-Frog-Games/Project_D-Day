@@ -2,23 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.UI;
 using TMPro;
+
+//Create a class for the waypoints, this is needed for the array in an array for pathing
+[System.Serializable]
+public class PathChoice
+{
+    public Transform[] waypoints;
+}
 
 public class LevelManager : MonoBehaviour
 {
     public static LevelManager main;
     public Transform startPoint;
-    public Transform[] path;
+    public PathChoice[] pathChoices;
 
     public static bool gameIsPaused = false;
     public GameObject gameOverMenuUI;
     public static UnityEvent e_GameOver = new UnityEvent();
+    public TextMeshProUGUI notificationText;
 
     [Header("References")]
     public float lives;
     public int coins;
-    public TextMeshProUGUI notificationText;
 
     private void Awake()
     {
@@ -46,15 +52,9 @@ public class LevelManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("You don't have enough coins to purchase this item.");
+            Debug.Log("You don't have enough coins to purchase this item."); //TODO: Replace with UI message
             return false;
-            
         }
-    }
-
-    public void StartNotification()
-    {
-        StartCoroutine(sendNotification("You dont have enough coins for this purchase", 3));   //Starts the notification below
     }
 
     public void GameOver()

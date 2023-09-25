@@ -64,12 +64,37 @@ PrefabInstance:
       propertyPath: currencyWorth
       value: 35
       objectReference: {fileID: 0}
+    - target: {fileID: 7568941501428632020, guid: 4e06b232a05a74512a79770204056ecf, type: 3}
+      propertyPath: offset
+      value: -12
+      objectReference: {fileID: 0}
     - target: {fileID: 8352929708561886502, guid: 4e06b232a05a74512a79770204056ecf, type: 3}
       propertyPath: moveSpeed
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7568941501428632020, guid: 4e06b232a05a74512a79770204056ecf, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4241095294277776868, guid: 4e06b232a05a74512a79770204056ecf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5220060340511812674}
   m_SourcePrefab: {fileID: 100100000, guid: 4e06b232a05a74512a79770204056ecf, type: 3}
+--- !u!1 &5100600856505084851 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4241095294277776868, guid: 4e06b232a05a74512a79770204056ecf, type: 3}
+  m_PrefabInstance: {fileID: 8940662065300250199}
+  m_PrefabAsset: {fileID: 0}
+--- !u!210 &5220060340511812674
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5100600856505084851}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_SortAtRoot: 1

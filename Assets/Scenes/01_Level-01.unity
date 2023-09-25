@@ -7360,7 +7360,6 @@ MonoBehaviour:
   baseEnemies: 8
   enemiesPerSecond: 0.5
   timeBetweenWaves: 5
-  difficultyScalingFactor: 0.75
   roundUI: {fileID: 1402697180}
   currentWave: 1
   enemySelectMax: 1

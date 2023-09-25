@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-public class TurretHandler : MonoBehaviour
+public class HydraHandler : MonoBehaviour
 {
     [Header("Attributes")]
     [SerializeField] private float targetingRange = 3f;
@@ -43,27 +43,27 @@ public class TurretHandler : MonoBehaviour
                 if (timeUntilFire >= 1f / bps)
                 {
                     Shoot();
+                    Invoke("Shoot", 0.2f);
                     timeUntilFire = 0f;
                 }
             }
         }
-        return;
-        
     }
 
     //Enable the range circle in Unity editor, NOTE: THIS MUST BE DISABLED FOR BUILDS, IT WILL CRASH OTHERWISE
-    #if UNITY_Editor
+#if UNITY_Editor
     private void OnDrawGizmosSelected()
     {
         Handles.color = Color.cyan;
         Handles.DrawWireDisc(transform.position, transform.forward, targetingRange);
     }
-    #endif
+#endif
 
     public void ToggleActive()
     {
         bought = true;
     }
+
     private void FindTarget()
     {
         RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, targetingRange, (Vector2)transform.position,
@@ -93,6 +93,6 @@ public class TurretHandler : MonoBehaviour
     {
         GameObject bulletObj = Instantiate(bulletPrefab, firingPoint.position, Quaternion.identity);
         BulletHandler bulletScript = bulletObj.GetComponent<BulletHandler>();
-        bulletScript.SetTarget(target, 50f);         //target and damage amount have to be passed
+        bulletScript.SetTarget(target, 27.5f);    //target and damage amount have to be passed
     }
 }

@@ -53,6 +53,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5852211543595255129, guid: 4e06b232a05a74512a79770204056ecf, type: 3}
+      propertyPath: em
+      value: 
+      objectReference: {fileID: 7244334290897954100}
+    - target: {fileID: 5852211543595255129, guid: 4e06b232a05a74512a79770204056ecf, type: 3}
       propertyPath: dmg
       value: 15
       objectReference: {fileID: 0}
@@ -98,3 +102,14 @@ SortingGroup:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_SortAtRoot: 1
+--- !u!114 &7244334290897954100 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8352929708561886502, guid: 4e06b232a05a74512a79770204056ecf, type: 3}
+  m_PrefabInstance: {fileID: 1685079599383578642}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3294945272362565110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36823a86911cf4e8fba7045b19db2a25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

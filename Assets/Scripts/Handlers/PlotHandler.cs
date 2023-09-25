@@ -118,6 +118,7 @@ public class PlotHandler : MonoBehaviour
 
         {
             Debug.Log("You dont have enough coins for this towwer");
+            LevelManager.main.StartNotification();
             CancelTower();
             return;
         }
@@ -130,7 +131,15 @@ public class PlotHandler : MonoBehaviour
     //placing the tower
     public void PlaceTower()
     {
-        tower.GetComponent<TurretHandler>().ToggleActive();
+        if(tower.TryGetComponent<TurretHandler>(out TurretHandler th))
+        {
+            th.ToggleActive();
+        }
+        if (tower.TryGetComponent<HydraHandler>(out HydraHandler hh))
+        {
+            hh.ToggleActive();
+        }
+        //TODO add third tower
         LevelManager.main.SpendCurrency(towerToBuild.cost);
         BuildManager.main.SetSelectedTower(-1);
         PreviewCanvasGroupOff();

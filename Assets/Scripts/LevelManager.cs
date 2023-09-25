@@ -70,4 +70,10 @@ public class LevelManager : MonoBehaviour
         yield return new WaitForSeconds(time);      //wait given seconds
         notificationText.text = "";                  //set text back to ""
     }
+
+    public void StartNotification()
+    {
+        //starts notifcation above
+        StartCoroutine(sendNotification("You don't have enough coins for this tower.", 3)); 
+    }
 }

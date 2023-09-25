@@ -47,6 +47,7 @@ public class BulletHandler : MonoBehaviour
     {
 		if(other.gameObject.layer == 8) return;
 
+        other.gameObject.GetComponent<EnemyMovement>().e_IsHit.Invoke();
         other.gameObject.GetComponent<HealthHandler>().TakeDamage(bulletDmg);
         Destroy(gameObject);
     }

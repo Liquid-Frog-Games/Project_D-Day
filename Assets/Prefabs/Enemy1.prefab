@@ -164,8 +164,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 8947486838687604714}
+  anim: {fileID: 0}
   health: {fileID: 5852211543595255129}
   moveSpeed: 1
+  e_IsHit:
+    m_PersistentCalls:
+      m_Calls: []
+  e_IsDead:
+    m_PersistentCalls:
+      m_Calls: []
+  e_IsAttacking:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &5852211543595255129
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -178,6 +188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec09d10244be44a9f98133c626986d41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  em: {fileID: 8352929708561886502}
   currencyWorth: 10
   hitPoints: 2
   dmg: 1

@@ -164,6 +164,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 2101086982044799146}
   bulletSpeed: 4
+  em: {fileID: 1150684647717041009, guid: 3386d4f331c4b483c8ef8c9a74c52fab, type: 3}
 --- !u!210 &-2335712825098662924
 SortingGroup:
   m_ObjectHideFlags: 0

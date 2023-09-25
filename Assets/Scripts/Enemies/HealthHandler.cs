@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class HealthHandler : MonoBehaviour
 {
+    public EnemyMovement em;
+
     [Header("Attributes")]
     [SerializeField] private int currencyWorth = 50;
     public float hitPoints = 1f;
@@ -21,7 +23,7 @@ public class HealthHandler : MonoBehaviour
             EnemySpawner.onEnemyDestroy.Invoke();
             LevelManager.main.IncreaseCurrency(currencyWorth);
             isDestroyed = true;
-            Destroy(gameObject);
+            em.e_IsDead.Invoke();
         }
     }
 

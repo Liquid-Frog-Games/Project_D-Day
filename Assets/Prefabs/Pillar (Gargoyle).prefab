@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 4214839574290095780}
   - component: {fileID: 4043916067549494052}
   - component: {fileID: 7404512786462939799}
+  - component: {fileID: 1850899951534063060}
   m_Layer: 0
   m_Name: Pillar (Gargoyle)
   m_TagString: Untagged
@@ -229,12 +230,25 @@ MonoBehaviour:
   targetingRange: 1.5
   rotationSpeed: 200
   bps: 1
+  bought: 0
   turretRotationPoint: {fileID: 4302407872440057422}
   enemyMask:
     serializedVersion: 2
     m_Bits: 64
   bulletPrefab: {fileID: 9019253044709291084, guid: 25294ed83f56d4f4eadc77e783fbbe58, type: 3}
   firingPoint: {fileID: 2751582216195682780}
+--- !u!210 &1850899951534063060
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3778199504143487322}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_SortAtRoot: 0
 --- !u!1 &5192501820617206805
 GameObject:
   m_ObjectHideFlags: 0

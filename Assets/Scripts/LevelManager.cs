@@ -29,11 +29,13 @@ public class LevelManager : MonoBehaviour
     private void Awake()
     {
         main = this;
+
         e_GameOver.AddListener(GameOver);
     }
 
     private void Start()
     {
+        notificationText.enabled = false; 
         lives = 200f;
         coins = 100;
     }
@@ -41,6 +43,11 @@ public class LevelManager : MonoBehaviour
     public void IncreaseCurrency(int amount)
     {
         coins += amount;
+    }
+
+    public void ResetHealth()
+    {
+        lives = 200f;
     }
 
     public bool SpendCurrency(int amount)
@@ -66,9 +73,11 @@ public class LevelManager : MonoBehaviour
 
     public IEnumerator sendNotification(string text, int time)
     {
+        notificationText.enabled = true;
         notificationText.text = text;            //set the text in the screen to the given text
         yield return new WaitForSeconds(time);      //wait given seconds
         notificationText.text = "";                  //set text back to ""
+        notificationText.enabled = false;
     }
 
     public void StartNotification()

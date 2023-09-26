@@ -82,19 +82,20 @@ public class PlotHandler : MonoBehaviour
 
     public void OnMouseDown()
     {
-
-        if (tower != null || towerToBuild != null) return;
-        if (shopOpen == false)
-        {
-            ShopCanvasGroupOn();
-            return;
-
-        }
+        if (!IsPointerOverUIObject()) {
+           if (tower != null || towerToBuild != null) return;
+           if (shopOpen == false)
+           {
+                ShopCanvasGroupOn();
+                return;
+           }
         if (shopOpen == true)
-        {
-            ShopCanvasGroupOff();
-            return;
+            {
+                ShopCanvasGroupOff();
+                return;
+            }
         }
+     
     }
 
     //does the element get covered by UI

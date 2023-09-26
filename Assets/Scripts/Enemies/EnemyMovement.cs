@@ -10,6 +10,7 @@ public class EnemyMovement : MonoBehaviour
 
     public Animator anim;
     public HealthHandler health;
+    public bool isFrozen = false;
 
     [Header("Attributes")]
     [SerializeField] private float moveSpeed = 2f;
@@ -69,11 +70,12 @@ public class EnemyMovement : MonoBehaviour
                     }
                     else
                     {
-                        //Do damage
+                        //Do damage and commit sudoku
                         LevelManager.main.lives -= health.dmg;
 
                         //Destroy enemy
                         EnemySpawner.onEnemyDestroy.Invoke();
+                        LevelManager.main.enemyList.Remove(gameObject);
                         Destroy(gameObject);
                     }
 
@@ -133,20 +135,36 @@ public class EnemyMovement : MonoBehaviour
         StartCoroutine(IsDead());
     }
 
+    public void FreezeEnemy()
+    {
+        isInterrupted = true;
+        rb.constraints = RigidbodyConstraints2D.FreezeAll;
+    }
+
+    public void UnFreezeEnemy()
+    {
+        if (rb)
+        {
+            rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+            isInterrupted = false;
+        }
+    }
+
     //GetHit
     public IEnumerator IsHit()
     {
         //Freeze enemy
-        isInterrupted = true;
-        rb.constraints = RigidbodyConstraints2D.FreezeAll;
+        FreezeEnemy();
 
         //Trigger animation and wait till its done
         anim.SetTrigger("GetHit");
         yield return new WaitForSeconds(0.5f);
 
         //Unfreeze enemy
-        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
-        isInterrupted = false;
+        if (!isFrozen)
+        {
+            UnFreezeEnemy();
+        }
     }
 
     //IsDead
@@ -154,11 +172,11 @@ public class EnemyMovement : MonoBehaviour
     {
         //Freeze enemy
         isDead = true;
-        isInterrupted = true;
-        rb.constraints = RigidbodyConstraints2D.FreezeAll;
+        FreezeEnemy();
 
         //Start animation and destroy
         anim.SetBool("Death", true);
+        LevelManager.main.enemyList.Remove(gameObject);
         yield return new WaitForSeconds(0.9f);
         Destroy(gameObject);
     }
@@ -169,8 +187,7 @@ public class EnemyMovement : MonoBehaviour
         isAttacking = true;
 
         //Freeze enemy
-        isInterrupted = true;
-        rb.constraints = RigidbodyConstraints2D.FreezeAll;
+        FreezeEnemy();
 
         while (LevelManager.main.lives > 0f)
         {

@@ -28,6 +28,7 @@ public class EnemySpawner : MonoBehaviour
     private int enemiesAlive;
     public int enemiesLeftToSpawn;
     private bool isSpawning = false;
+    private GameObject newEnemy;
 
 
     [Header("Events")]
@@ -135,13 +136,12 @@ public class EnemySpawner : MonoBehaviour
     private void SpawnEnemy()
     {
         GameObject prefabToSpawn = enemyPrefabs[Random.Range(0, enemySelectMax)];
-        Instantiate(prefabToSpawn, LevelManager.main.startPoint.position, Quaternion.identity);
+        newEnemy = Instantiate(prefabToSpawn, LevelManager.main.startPoint.position, Quaternion.identity);
+        LevelManager.main.enemyList.Add(newEnemy);
     }
     //calculates the enemy per wave
     private int EnemiesPerWave()
     {
         return Mathf.RoundToInt(baseEnemies);
     }
-
-
 }

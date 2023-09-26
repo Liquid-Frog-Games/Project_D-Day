@@ -16,6 +16,7 @@ public class LevelManager : MonoBehaviour
     public static LevelManager main;
     public Transform startPoint;
     public PathChoice[] pathChoices;
+    public List<GameObject> enemyList;
 
     public static bool gameIsPaused = false;
     public GameObject gameOverMenuUI;
@@ -32,12 +33,6 @@ public class LevelManager : MonoBehaviour
         e_GameOver.AddListener(GameOver);
     }
 
-    private void Start()
-    {
-        lives = 200f;
-        coins = 100;
-    }
-
     public void IncreaseCurrency(int amount)
     {
         coins += amount;
@@ -52,7 +47,6 @@ public class LevelManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("You don't have enough coins to purchase this item."); //TODO: Replace with UI message
             return false;
         }
     }

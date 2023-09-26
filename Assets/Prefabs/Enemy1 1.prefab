@@ -65,6 +65,10 @@ PrefabInstance:
       value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 5852211543595255129, guid: 4e06b232a05a74512a79770204056ecf, type: 3}
+      propertyPath: soulValue
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5852211543595255129, guid: 4e06b232a05a74512a79770204056ecf, type: 3}
       propertyPath: currencyWorth
       value: 35
       objectReference: {fileID: 0}

@@ -117,7 +117,6 @@ public class PlotHandler : MonoBehaviour
         if (towerToBuild.cost > LevelManager.main.coins)       //replace with UI message
 
         {
-            Debug.Log("You dont have enough coins for this towwer");
             LevelManager.main.StartNotification();
             CancelTower();
             return;

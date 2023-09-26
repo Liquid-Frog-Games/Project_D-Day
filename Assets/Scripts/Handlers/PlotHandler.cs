@@ -10,8 +10,6 @@ public class PlotHandler : MonoBehaviour
 {
     //sprites 
     public SpriteRenderer spriteRenderer;
-    public Sprite addSprite;
-    public Sprite removeSprite;
 
     //gameObjects
     public GameObject[] icons;
@@ -29,7 +27,6 @@ public class PlotHandler : MonoBehaviour
 
     private void Start()
     {
-        spriteRenderer.sprite = addSprite;
         inPreview = false;
         shopOpen = false;
         ShopCanvasGroupOff();
@@ -42,7 +39,6 @@ public class PlotHandler : MonoBehaviour
     {
         //turns the shop UI off
         shopOpen = false;
-        spriteRenderer.sprite = addSprite;
         shopCanvas.GetComponent<CanvasGroup>().alpha = 0;
         shopCanvas.GetComponent<CanvasGroup>().interactable = false;
         shopCanvas.GetComponent<CanvasGroup>().blocksRaycasts = false;
@@ -52,7 +48,6 @@ public class PlotHandler : MonoBehaviour
     private void ShopCanvasGroupOn()
     { //turns the UI on
         shopOpen = true;
-        spriteRenderer.sprite = removeSprite;
         shopCanvas.GetComponent<CanvasGroup>().alpha = 1;
         shopCanvas.GetComponent<CanvasGroup>().interactable = true;
         shopCanvas.GetComponent<CanvasGroup>().blocksRaycasts = true;

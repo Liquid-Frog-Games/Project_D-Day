@@ -1425,9 +1425,9 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
+    x: 0.08925751
     y: 0
-    width: 1
+    width: 0.821485
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
@@ -1480,7 +1480,7 @@ MonoBehaviour:
   m_AssetsPPU: 100
   m_RefResolutionX: 640
   m_RefResolutionY: 360
-  m_CropFrame: 0
+  m_CropFrame: 4
   m_GridSnapping: 0
   m_FilterMode: 0
   m_UpscaleRT: 0
@@ -7360,7 +7360,6 @@ MonoBehaviour:
   baseEnemies: 8
   enemiesPerSecond: 0.5
   timeBetweenWaves: 5
-  difficultyScalingFactor: 0.75
   roundUI: {fileID: 1402697180}
   currentWave: 1
   enemySelectMax: 1
@@ -7848,7 +7847,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 32, y: -32.78}
+  m_AnchoredPosition: {x: 32, y: -32.78003}
   m_SizeDelta: {x: 32, y: 32}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1843735594
@@ -8847,6 +8846,18 @@ PrefabInstance:
     - target: {fileID: 640708971464462790, guid: aca65556c13fc4d43b03fd2e84d64f9b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 2666608064971806811, guid: aca65556c13fc4d43b03fd2e84d64f9b, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 34043404
+      objectReference: {fileID: 0}
+    - target: {fileID: 2666608064971806811, guid: aca65556c13fc4d43b03fd2e84d64f9b, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 34043404
+      objectReference: {fileID: 0}
+    - target: {fileID: 2666608064971806811, guid: aca65556c13fc4d43b03fd2e84d64f9b, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 34043404
       objectReference: {fileID: 0}
     - target: {fileID: 2666608064971806811, guid: aca65556c13fc4d43b03fd2e84d64f9b, type: 3}
       propertyPath: m_LocalPosition.x

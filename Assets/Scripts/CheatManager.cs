@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
 using UnityEditor;
 using UnityEngine;
 
@@ -26,6 +27,7 @@ public class CheatManager : MonoBehaviour
     //menu opens
     private void OpenCheatMenu()
     {
+        enemySpawner = GetComponent<EnemySpawner>();
         cheaterMenu.SetActive(true);
     }
 
@@ -44,6 +46,7 @@ public class CheatManager : MonoBehaviour
     //kills all enemies that have spawned
     public void KillAll()
     {
+
     //TODO KILL ALL ENEMIES 
     }
 

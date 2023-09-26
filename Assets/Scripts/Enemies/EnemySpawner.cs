@@ -10,6 +10,7 @@ public class EnemySpawner : MonoBehaviour
 
     [Header("References")]
     [SerializeField] private GameObject[] enemyPrefabs;
+    
     [SerializeField] private GameObject starWaveBtn;
     [SerializeField] private GameObject victoryScreen;
     public int waveGoal = 1;
@@ -25,7 +26,7 @@ public class EnemySpawner : MonoBehaviour
   
     private float timeSinceLastSpawn;
     private int enemiesAlive;
-    private int enemiesLeftToSpawn;
+    public int enemiesLeftToSpawn;
     private bool isSpawning = false;
     private GameObject newEnemy;
 

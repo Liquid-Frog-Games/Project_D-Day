@@ -10,6 +10,7 @@ public class PlotHandler : MonoBehaviour
 {
     //sprites 
     public SpriteRenderer spriteRenderer;
+    public Sprite plotSprite;
 
     //gameObjects
     public GameObject[] icons;
@@ -19,16 +20,17 @@ public class PlotHandler : MonoBehaviour
     //canvas
     public Canvas shopCanvas;
     public Canvas previewCanvas;
+    public Canvas sellCanvas;
 
     //booleans 
     public bool shopOpen;
-    public bool inPreview;
+    public bool sellPreview;
 
 
     private void Start()
     {
-        inPreview = false;
         shopOpen = false;
+        sellPreview = false;
         ShopCanvasGroupOff();
         PreviewCanvasGroupOff();
 
@@ -57,7 +59,6 @@ public class PlotHandler : MonoBehaviour
     private void PreviewCanvasGroupOff()
     {
         //turns the preview UI off
-        inPreview = true;
         previewCanvas.GetComponent<CanvasGroup>().alpha = 0;
         previewCanvas.GetComponent<CanvasGroup>().interactable = false;
         previewCanvas.GetComponent<CanvasGroup>().blocksRaycasts = false;
@@ -67,30 +68,57 @@ public class PlotHandler : MonoBehaviour
     private void PreviewCanvasGroupOn()
     {
         //turns the preview UI on
-        inPreview = false;
         previewCanvas.GetComponent<CanvasGroup>().alpha = 1;
         previewCanvas.GetComponent<CanvasGroup>().interactable = true;
         previewCanvas.GetComponent<CanvasGroup>().blocksRaycasts = true;
+    }
+
+    private void SellCanvasGroupOff()
+    {
+        //turns the preview UI off
+        sellPreview = false;
+        sellCanvas.GetComponent<CanvasGroup>().alpha = 0;
+        sellCanvas.GetComponent<CanvasGroup>().interactable = false;
+        sellCanvas.GetComponent<CanvasGroup>().blocksRaycasts = false;
+    }
+
+
+    private void SellCanvasGroupOn()
+    {
+        //turns the preview UI on
+        sellPreview = true;
+        sellCanvas.GetComponent<CanvasGroup>().alpha = 1;
+        sellCanvas.GetComponent<CanvasGroup>().interactable = true;
+        sellCanvas.GetComponent<CanvasGroup>().blocksRaycasts = true;
     }
 
     //when the player clicks on the plot
 
     public void OnMouseDown()
     {
-        if (!IsPointerOverUIObject()) {
-           if (tower != null || towerToBuild != null) return;
-           if (shopOpen == false)
-           {
-                ShopCanvasGroupOn();
-                return;
-           }
-        if (shopOpen == true)
+        if (!IsPointerOverUIObject())
+        {
+            if (tower != null)
             {
-                ShopCanvasGroupOff();
+                SellCanvasGroupOn();
                 return;
             }
+            else
+            {
+                if (shopOpen == false)
+                {
+                    ShopCanvasGroupOn();
+                    return;
+                }
+                if (shopOpen == true)
+                {
+                    ShopCanvasGroupOff();
+                    return;
+                }
+            }
+
         }
-     
+
     }
 
     //does the element get covered by UI
@@ -126,7 +154,7 @@ public class PlotHandler : MonoBehaviour
     //placing the tower
     public void PlaceTower()
     {
-        if(tower.TryGetComponent<TurretHandler>(out TurretHandler th))
+        if (tower.TryGetComponent<TurretHandler>(out TurretHandler th))
         {
             th.ToggleActive();
         }
@@ -153,4 +181,20 @@ public class PlotHandler : MonoBehaviour
         return;
     }
 
+    public void SellTower()
+    {
+        LevelManager.main.IncreaseCurrency(towerToBuild.cost / 2);
+        towerToBuild = null;
+        Destroy(tower);
+        BuildManager.main.SetSelectedTower(-1);
+        spriteRenderer.sprite = plotSprite;
+        SellCanvasGroupOff();
+        return;
+
+    }
+    public void CancelSellTower()
+    {
+        SellCanvasGroupOff();
+        return;
+    }
 }

@@ -3185,9 +3185,9 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.08925751
+    x: 0
     y: 0
-    width: 0.821485
+    width: 1
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
@@ -8785,18 +8785,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefabs:
-  - {fileID: 4951867885844365301, guid: d9d2e54f667ddb640bd5efde9c304b6d, type: 3}
+  - {fileID: 5100600856505084851, guid: 3386d4f331c4b483c8ef8c9a74c52fab, type: 3}
   - {fileID: 5100600856505084851, guid: 49acad7c250d0bd46ba49d34e5b9b86c, type: 3}
   - {fileID: 3294945272362565110, guid: 69a01a243b8bb884eb5bcb832c1b3f14, type: 3}
   starWaveBtn: {fileID: 805152960}
   victoryScreen: {fileID: 1456798073}
-  waveGoal: 2
+  waveGoal: 5
   baseEnemies: 8
   enemiesPerSecond: 0.5
   timeBetweenWaves: 5
   roundUI: {fileID: 1858943653}
   currentWave: 1
   enemySelectMax: 1
+  enemiesAlive: 0
+  enemiesLeftToSpawn: 0
+  isSpawning: 0
 --- !u!114 &1901656974
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8819,6 +8822,7 @@ MonoBehaviour:
     - {fileID: 419022830}
     - {fileID: 855547712}
     - {fileID: 506893167}
+  enemyList: []
   gameOverMenuUI: {fileID: 173737852}
   notificationText: {fileID: 1462459927}
   lives: 200

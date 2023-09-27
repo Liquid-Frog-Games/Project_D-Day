@@ -106,6 +106,8 @@ public class EnemySpawner : MonoBehaviour
     {
         Time.timeScale = 0f;
         victoryScreen.SetActive(true);
+
+        //Save isLocked Bool true to local storage
     }
 
     //increases the wave difficulty if the wave is an even number

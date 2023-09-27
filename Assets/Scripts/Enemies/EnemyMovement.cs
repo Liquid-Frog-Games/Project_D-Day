@@ -97,10 +97,6 @@ public class EnemyMovement : MonoBehaviour
                 }
             }
         }
-        else
-        {
-            target.position = transform.position;
-        }
 
         //Set the velocity of the previous frame if not interrupted
         if (!isInterrupted)
@@ -130,7 +126,7 @@ public class EnemyMovement : MonoBehaviour
         StartCoroutine(IsHit());
     }
 
-    private void StartIsDead()
+    public void StartIsDead()
     {
         StartCoroutine(IsDead());
     }
@@ -143,10 +139,13 @@ public class EnemyMovement : MonoBehaviour
 
     public void UnFreezeEnemy()
     {
-        if (rb)
+        if (!isDead)
         {
-            rb.constraints = RigidbodyConstraints2D.FreezeRotation;
-            isInterrupted = false;
+            if (rb)
+            {
+                rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+                isInterrupted = false;
+            }
         }
     }
 

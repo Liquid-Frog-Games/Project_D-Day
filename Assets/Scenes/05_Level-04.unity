@@ -1208,6 +1208,9 @@ MonoBehaviour:
   roundUI: {fileID: 408323607}
   currentWave: 1
   enemySelectMax: 1
+  enemiesAlive: 0
+  enemiesLeftToSpawn: 0
+  isSpawning: 0
 --- !u!114 &429151224
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1242,10 +1245,11 @@ MonoBehaviour:
     - {fileID: 986029563}
     - {fileID: 413012960}
     - {fileID: 1725191447}
+  enemyList: []
   gameOverMenuUI: {fileID: 1241578726}
   notificationText: {fileID: 1371073328}
-  lives: 0
-  coins: 0
+  lives: 200
+  coins: 100
 --- !u!4 &429151225
 Transform:
   m_ObjectHideFlags: 0
@@ -9348,9 +9352,9 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.08925751
+    x: 0.07894737
     y: 0
-    width: 0.821485
+    width: 0.84210527
     height: 1
   near clip plane: 0.3
   far clip plane: 1000

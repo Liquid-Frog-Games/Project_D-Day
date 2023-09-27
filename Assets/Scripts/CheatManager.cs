@@ -7,9 +7,8 @@ using UnityEngine;
 
 public class CheatManager : MonoBehaviour
 {
-    public GameObject[] enemies;
     public GameObject cheaterMenu;
-    public EnemySpawner enemySpawner;
+    public EnemySpawner es;
     private int taps = 0;
     
     //amount of taps to open the menu
@@ -27,7 +26,6 @@ public class CheatManager : MonoBehaviour
     //menu opens
     private void OpenCheatMenu()
     {
-        enemySpawner = GetComponent<EnemySpawner>();
         cheaterMenu.SetActive(true);
     }
 
@@ -43,11 +41,16 @@ public class CheatManager : MonoBehaviour
         LevelManager.main.IncreaseCurrency(200);
     }
 
-    //kills all enemies that have spawned
+    //Adds 100 souls
+    public void AddSouls()
+    {
+        Medusa.main.soulCount += 100;
+    }
+
+    //kills all enemies that have spawned (EDIT: just skip the round and go to the next one)
     public void KillAll()
     {
-
-    //TODO KILL ALL ENEMIES 
+        EnemySpawner.main.EndWave();
     }
 
     //closes window

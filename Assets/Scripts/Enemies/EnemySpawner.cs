@@ -25,9 +25,9 @@ public class EnemySpawner : MonoBehaviour
     public int enemySelectMax = 0;
   
     private float timeSinceLastSpawn;
-    private int enemiesAlive;
+    public int enemiesAlive;
     public int enemiesLeftToSpawn;
-    private bool isSpawning = false;
+    public bool isSpawning = false;
     private GameObject newEnemy;
 
 
@@ -36,6 +36,8 @@ public class EnemySpawner : MonoBehaviour
 
     void Awake()
     {
+        main = this;
+
         baseEnemies = 8;
         enemiesPerSecond = 0.5f;
         timeBetweenWaves = 5f;
@@ -78,10 +80,11 @@ public class EnemySpawner : MonoBehaviour
     }
 
     //called at the end of the wave
-    private void EndWave()
+    public void EndWave()
     {
         isSpawning = false;
         timeSinceLastSpawn = 0f;
+        enemiesLeftToSpawn = 0;
 
         if (currentWave == waveGoal)
         {

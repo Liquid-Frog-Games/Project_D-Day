@@ -10,6 +10,7 @@ public class EnemySpawner : MonoBehaviour
 
     [Header("References")]
     [SerializeField] private GameObject[] enemyPrefabs;
+    
     [SerializeField] private GameObject starWaveBtn;
     [SerializeField] private GameObject victoryScreen;
     public int waveGoal = 1;
@@ -24,9 +25,10 @@ public class EnemySpawner : MonoBehaviour
     public int enemySelectMax = 0;
   
     private float timeSinceLastSpawn;
-    private int enemiesAlive;
-    private int enemiesLeftToSpawn;
-    private bool isSpawning = false;
+    public int enemiesAlive;
+    public int enemiesLeftToSpawn;
+    public bool isSpawning = false;
+    private GameObject newEnemy;
 
 
     [Header("Events")]
@@ -34,6 +36,8 @@ public class EnemySpawner : MonoBehaviour
 
     void Awake()
     {
+        main = this;
+
         baseEnemies = 8;
         enemiesPerSecond = 0.5f;
         timeBetweenWaves = 5f;
@@ -76,10 +80,11 @@ public class EnemySpawner : MonoBehaviour
     }
 
     //called at the end of the wave
-    private void EndWave()
+    public void EndWave()
     {
         isSpawning = false;
         timeSinceLastSpawn = 0f;
+        enemiesLeftToSpawn = 0;
 
         if (currentWave == waveGoal)
         {
@@ -134,13 +139,12 @@ public class EnemySpawner : MonoBehaviour
     private void SpawnEnemy()
     {
         GameObject prefabToSpawn = enemyPrefabs[Random.Range(0, enemySelectMax)];
-        Instantiate(prefabToSpawn, LevelManager.main.startPoint.position, Quaternion.identity);
+        newEnemy = Instantiate(prefabToSpawn, LevelManager.main.startPoint.position, Quaternion.identity);
+        LevelManager.main.enemyList.Add(newEnemy);
     }
     //calculates the enemy per wave
     private int EnemiesPerWave()
     {
         return Mathf.RoundToInt(baseEnemies);
     }
-
-
 }

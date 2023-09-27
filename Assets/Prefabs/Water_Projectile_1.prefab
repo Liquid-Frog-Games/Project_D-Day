@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2101086982044799146}
   - component: {fileID: 8317884774203880071}
   - component: {fileID: 4677918556484636888}
+  - component: {fileID: -2335712825098662924}
   m_Layer: 7
   m_Name: Water_Projectile_1
   m_TagString: Untagged
@@ -163,6 +164,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 2101086982044799146}
   bulletSpeed: 4
-  bulletDmg: 1
-  bulletRotationPoint: {fileID: 6654478054750817930}
-  rotationSpeed: 10000
+  em: {fileID: 1150684647717041009, guid: 3386d4f331c4b483c8ef8c9a74c52fab, type: 3}
+--- !u!210 &-2335712825098662924
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9019253044709291084}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_SortAtRoot: 1

@@ -27,6 +27,7 @@ public class BuildManager : MonoBehaviour
             Debug.Log("Not selected");
             return null;
         }
+
         return towers[selectedTower]; 
     }
 

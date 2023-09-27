@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class HealthHandler : MonoBehaviour
 {
+    public EnemyMovement em;
+
     [Header("Attributes")]
     [SerializeField] private int currencyWorth = 50;
     public float hitPoints = 1f;
     public float dmg = 1f;
+    public int soulValue = 1;
 
     private bool isDestroyed = false; 
 
@@ -20,8 +23,9 @@ public class HealthHandler : MonoBehaviour
         {
             EnemySpawner.onEnemyDestroy.Invoke();
             LevelManager.main.IncreaseCurrency(currencyWorth);
+            Medusa.main.AddSouls(soulValue);
             isDestroyed = true;
-            Destroy(gameObject);
+            em.e_IsDead.Invoke();
         }
     }
 

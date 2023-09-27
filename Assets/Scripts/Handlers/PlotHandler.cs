@@ -77,19 +77,20 @@ public class PlotHandler : MonoBehaviour
 
     public void OnMouseDown()
     {
-
-        if (tower != null || towerToBuild != null) return;
-        if (shopOpen == false)
-        {
-            ShopCanvasGroupOn();
-            return;
-
-        }
+        if (!IsPointerOverUIObject()) {
+           if (tower != null || towerToBuild != null) return;
+           if (shopOpen == false)
+           {
+                ShopCanvasGroupOn();
+                return;
+           }
         if (shopOpen == true)
-        {
-            ShopCanvasGroupOff();
-            return;
+            {
+                ShopCanvasGroupOff();
+                return;
+            }
         }
+     
     }
 
     //does the element get covered by UI
@@ -112,7 +113,6 @@ public class PlotHandler : MonoBehaviour
         if (towerToBuild.cost > LevelManager.main.coins)       //replace with UI message
 
         {
-            Debug.Log("You dont have enough coins for this towwer");
             LevelManager.main.StartNotification();
             CancelTower();
             return;

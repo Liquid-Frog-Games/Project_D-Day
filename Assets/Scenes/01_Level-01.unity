@@ -1130,7 +1130,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0.048, y: -3.833}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &451430333
@@ -7763,6 +7763,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4236629568962241283, guid: aca65556c13fc4d43b03fd2e84d64f9b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4236629568962241283, guid: aca65556c13fc4d43b03fd2e84d64f9b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1743109327}
+    - target: {fileID: 4236629568962241283, guid: aca65556c13fc4d43b03fd2e84d64f9b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetSelectedTower
+      objectReference: {fileID: 0}
+    - target: {fileID: 4236629568962241283, guid: aca65556c13fc4d43b03fd2e84d64f9b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: BuildManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4236629568962241283, guid: aca65556c13fc4d43b03fd2e84d64f9b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 5156776645045698866, guid: aca65556c13fc4d43b03fd2e84d64f9b, type: 3}
       propertyPath: m_Name
       value: Plot
@@ -8849,15 +8869,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2666608064971806811, guid: aca65556c13fc4d43b03fd2e84d64f9b, type: 3}
       propertyPath: m_LocalScale.x
-      value: 34043404
+      value: 3.231268
       objectReference: {fileID: 0}
     - target: {fileID: 2666608064971806811, guid: aca65556c13fc4d43b03fd2e84d64f9b, type: 3}
       propertyPath: m_LocalScale.y
-      value: 34043404
+      value: 3.231268
       objectReference: {fileID: 0}
     - target: {fileID: 2666608064971806811, guid: aca65556c13fc4d43b03fd2e84d64f9b, type: 3}
       propertyPath: m_LocalScale.z
-      value: 34043404
+      value: 3.231268
       objectReference: {fileID: 0}
     - target: {fileID: 2666608064971806811, guid: aca65556c13fc4d43b03fd2e84d64f9b, type: 3}
       propertyPath: m_LocalPosition.x

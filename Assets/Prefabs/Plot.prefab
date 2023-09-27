@@ -810,7 +810,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 928651288629046754, guid: af7dc6b24c442824eaff01806036a734, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 928651288629046754, guid: af7dc6b24c442824eaff01806036a734, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -823,7 +823,7 @@ PrefabInstance:
     - target: {fileID: 928651288629046754, guid: af7dc6b24c442824eaff01806036a734, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 11500000, guid: c0598e06ed2444807a6d16855cc125eb, type: 3}
+      objectReference: {fileID: 3882735066855687665}
     - target: {fileID: 928651288629046754, guid: af7dc6b24c442824eaff01806036a734, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -837,12 +837,24 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 928651288629046754, guid: af7dc6b24c442824eaff01806036a734, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PlaceTower
+      objectReference: {fileID: 0}
+    - target: {fileID: 928651288629046754, guid: af7dc6b24c442824eaff01806036a734, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: PlaceTower
       objectReference: {fileID: 0}
     - target: {fileID: 928651288629046754, guid: af7dc6b24c442824eaff01806036a734, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PlotHandler, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 928651288629046754, guid: af7dc6b24c442824eaff01806036a734, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
       value: PlotHandler, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 928651288629046754, guid: af7dc6b24c442824eaff01806036a734, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 928651288629046754, guid: af7dc6b24c442824eaff01806036a734, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -1073,7 +1085,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3190707358103347349, guid: 715f5cd4a9a32a6479c5f85237c1e638, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3190707358103347349, guid: 715f5cd4a9a32a6479c5f85237c1e638, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -1086,7 +1098,7 @@ PrefabInstance:
     - target: {fileID: 3190707358103347349, guid: 715f5cd4a9a32a6479c5f85237c1e638, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 11500000, guid: c0598e06ed2444807a6d16855cc125eb, type: 3}
+      objectReference: {fileID: 3882735066855687665}
     - target: {fileID: 3190707358103347349, guid: 715f5cd4a9a32a6479c5f85237c1e638, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -1100,12 +1112,24 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3190707358103347349, guid: 715f5cd4a9a32a6479c5f85237c1e638, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CancelTower
+      objectReference: {fileID: 0}
+    - target: {fileID: 3190707358103347349, guid: 715f5cd4a9a32a6479c5f85237c1e638, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: CancelTower
       objectReference: {fileID: 0}
     - target: {fileID: 3190707358103347349, guid: 715f5cd4a9a32a6479c5f85237c1e638, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PlotHandler, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3190707358103347349, guid: 715f5cd4a9a32a6479c5f85237c1e638, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
       value: PlotHandler, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3190707358103347349, guid: 715f5cd4a9a32a6479c5f85237c1e638, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 3190707358103347349, guid: 715f5cd4a9a32a6479c5f85237c1e638, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName

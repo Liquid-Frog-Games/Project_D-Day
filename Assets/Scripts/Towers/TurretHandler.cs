@@ -26,6 +26,7 @@ public class TurretHandler : MonoBehaviour
     {
         if (bought == true)
         {
+            
             if (target == null)
             {
                 FindTarget();

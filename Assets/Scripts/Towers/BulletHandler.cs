@@ -6,6 +6,7 @@ using UnityEngine;
 public class BulletHandler : MonoBehaviour
 {
     [Header("References")]
+    public Animator animator;
     [SerializeField] private Rigidbody2D rb;
 
     [Header("Attributes")]
@@ -45,6 +46,7 @@ public class BulletHandler : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
+        animator.SetTrigger("Hit");
 		if(other.gameObject.layer == 8) return;
 
         other.gameObject.GetComponent<EnemyMovement>().e_IsHit.Invoke();

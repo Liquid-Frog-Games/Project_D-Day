@@ -6,6 +6,7 @@ using UnityEditor;
 public class TurretHandler : MonoBehaviour
 {
     [Header("Attributes")]
+    public Animator animator;
     [SerializeField] private float targetingRange = 3f;
     [SerializeField] private float rotationSpeed = 200f;
     [SerializeField] private float bps = 1f;        // Bullet per second
@@ -29,6 +30,7 @@ public class TurretHandler : MonoBehaviour
     {
         if (bought == true)
         {
+            
             if (target == null)
             {
                 FindTarget();
@@ -43,7 +45,8 @@ public class TurretHandler : MonoBehaviour
             else
             {
                 timeUntilFire += Time.deltaTime;
-                
+                animator.SetTrigger("Attack");
+
                 if (timeUntilFire >= 1f / bps)
                 {
                     anim.SetBool("IsAttacking", true);

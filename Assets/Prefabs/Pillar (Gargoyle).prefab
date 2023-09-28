@@ -45,6 +45,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1301099376080156291}
   - component: {fileID: 7802340844188750192}
+  - component: {fileID: 247149982250078022}
   m_Layer: 0
   m_Name: Gargoyle
   m_TagString: Untagged
@@ -123,6 +124,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &247149982250078022
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2958483501375973994}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 55b01822caf022f44862337b64ce74c1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &3778199504143487322
 GameObject:
   m_ObjectHideFlags: 0
@@ -135,6 +157,7 @@ GameObject:
   - component: {fileID: 4043916067549494052}
   - component: {fileID: 7404512786462939799}
   - component: {fileID: 1850899951534063060}
+  - component: {fileID: 3283954782258412197}
   m_Layer: 0
   m_Name: Pillar (Gargoyle)
   m_TagString: Untagged
@@ -203,18 +226,18 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 568463548, guid: e549889355bb1be4ba2b7dd0631cfec1, type: 3}
+  m_SortingOrder: -4
+  m_Sprite: {fileID: 21300000, guid: e549889355bb1be4ba2b7dd0631cfec1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_DrawMode: 2
+  m_Size: {x: 0.64, y: 0.64}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!114 &7404512786462939799
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -231,6 +254,7 @@ MonoBehaviour:
   rotationSpeed: 200
   bps: 1
   bought: 0
+  anim: {fileID: 3283954782258412197}
   turretRotationPoint: {fileID: 4302407872440057422}
   enemyMask:
     serializedVersion: 2
@@ -249,6 +273,27 @@ SortingGroup:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_SortAtRoot: 0
+--- !u!95 &3283954782258412197
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3778199504143487322}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 55b01822caf022f44862337b64ce74c1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &5192501820617206805
 GameObject:
   m_ObjectHideFlags: 0

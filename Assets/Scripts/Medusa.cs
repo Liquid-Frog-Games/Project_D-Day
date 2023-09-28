@@ -15,7 +15,10 @@ public class Medusa : MonoBehaviour
     private void Start()
     {
         //Sync SoulReq to slider maxValue
-        soulBar.maxValue = soulRequirement;
+        if (soulBar)
+        {
+            soulBar.maxValue = soulRequirement;
+        }
     }
 
     private void Awake()
@@ -71,7 +74,10 @@ public class Medusa : MonoBehaviour
     //Sync SoulCount to slider value
     private void OnGUI()
     {
-        soulBar.value = soulCount;
+        if (soulBar)
+        {
+            soulBar.value = soulCount;
+        }
     }
 
 }

@@ -2,9 +2,11 @@ using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq.Expressions;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using static System.Net.Mime.MediaTypeNames;
 
 public class PlotHandler : MonoBehaviour
 {
@@ -21,6 +23,10 @@ public class PlotHandler : MonoBehaviour
     public Canvas shopCanvas;
     public Canvas previewCanvas;
     public Canvas sellCanvas;
+
+
+    //textmesh
+    public TextMeshProUGUI sellPrice;
 
     //booleans 
     public bool shopOpen;
@@ -86,6 +92,7 @@ public class PlotHandler : MonoBehaviour
     private void SellCanvasGroupOn()
     {
         //turns the preview UI on
+        sellPrice.text = (towerToBuild.cost / 2).ToString();
         sellPreview = true;
         sellCanvas.GetComponent<CanvasGroup>().alpha = 1;
         sellCanvas.GetComponent<CanvasGroup>().interactable = true;

@@ -49,7 +49,6 @@ public class TurretHandler : MonoBehaviour
 
                 if (timeUntilFire >= 1f / bps)
                 {
-                    anim.SetBool("IsAttacking", true);
                     Shoot();
                     timeUntilFire = 0f;
                 }
@@ -102,6 +101,6 @@ public class TurretHandler : MonoBehaviour
         GameObject bulletObj = Instantiate(bulletPrefab, firingPoint.position, Quaternion.identity);
         BulletHandler bulletScript = bulletObj.GetComponent<BulletHandler>();
         bulletScript.SetTarget(target, 50f);         //target and damage amount have to be passed
-        anim.SetBool("IsAttacking", false);
+
     }
 }

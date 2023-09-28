@@ -14,6 +14,7 @@ public class TurretHandler : MonoBehaviour
     public bool bought = false;
 
     [Header("References")]
+    public Animator anim;
     [SerializeField] private Transform turretRotationPoint;
     [SerializeField] private LayerMask enemyMask;
     [SerializeField] private GameObject bulletPrefab;
@@ -21,6 +22,9 @@ public class TurretHandler : MonoBehaviour
 
     private Transform target;
     private float timeUntilFire;
+
+    //Animations
+    private bool isAttacking = false;
 
     void Update()
     {
@@ -42,8 +46,10 @@ public class TurretHandler : MonoBehaviour
             {
                 timeUntilFire += Time.deltaTime;
                 animator.SetTrigger("Attack");
+
                 if (timeUntilFire >= 1f / bps)
                 {
+                    anim.SetBool("IsAttacking", true);
                     Shoot();
                     timeUntilFire = 0f;
                 }
@@ -96,5 +102,6 @@ public class TurretHandler : MonoBehaviour
         GameObject bulletObj = Instantiate(bulletPrefab, firingPoint.position, Quaternion.identity);
         BulletHandler bulletScript = bulletObj.GetComponent<BulletHandler>();
         bulletScript.SetTarget(target, 50f);         //target and damage amount have to be passed
+        anim.SetBool("IsAttacking", false);
     }
 }

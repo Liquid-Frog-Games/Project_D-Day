@@ -23,9 +23,6 @@ public class TurretHandler : MonoBehaviour
     private Transform target;
     private float timeUntilFire;
 
-    //Animations
-    private bool isAttacking = false;
-
     void Update()
     {
         if (bought == true)

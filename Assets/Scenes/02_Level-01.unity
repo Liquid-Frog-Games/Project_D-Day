@@ -8784,6 +8784,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9991077a5f9ad469e9eaa895ddf212bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelToUnlock: 2
   enemyPrefabs:
   - {fileID: 5100600856505084851, guid: 3386d4f331c4b483c8ef8c9a74c52fab, type: 3}
   - {fileID: 5100600856505084851, guid: 49acad7c250d0bd46ba49d34e5b9b86c, type: 3}

@@ -8,6 +8,8 @@ public class EnemySpawner : MonoBehaviour
 {
     public static EnemySpawner main;
 
+    public int levelToUnlock;
+
     [Header("References")]
     [SerializeField] private GameObject[] enemyPrefabs;
     
@@ -107,7 +109,8 @@ public class EnemySpawner : MonoBehaviour
         Time.timeScale = 0f;
         victoryScreen.SetActive(true);
 
-        //Save isLocked Bool true to local storage
+        //Save level reached
+        PlayerPrefs.SetInt("levelReached", levelToUnlock);
     }
 
     //increases the wave difficulty if the wave is an even number

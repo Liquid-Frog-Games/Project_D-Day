@@ -9337,6 +9337,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cheat Window
       objectReference: {fileID: 0}
+    - target: {fileID: 1784545497074731009, guid: abffda456926940b9a9dc34cbbd2719a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3320433584573189292, guid: abffda456926940b9a9dc34cbbd2719a, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

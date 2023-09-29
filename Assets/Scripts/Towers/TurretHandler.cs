@@ -6,6 +6,7 @@ using UnityEditor;
 public class TurretHandler : MonoBehaviour
 {
     [Header("Attributes")]
+    public Animator animator;
     [SerializeField] private float targetingRange = 3f;
     [SerializeField] private float rotationSpeed = 200f;
     [SerializeField] private float bps = 1f;        // Bullet per second
@@ -13,6 +14,7 @@ public class TurretHandler : MonoBehaviour
     public bool bought = false;
 
     [Header("References")]
+    public Animator anim;
     [SerializeField] private Transform turretRotationPoint;
     [SerializeField] private LayerMask enemyMask;
     [SerializeField] private GameObject bulletPrefab;
@@ -25,6 +27,7 @@ public class TurretHandler : MonoBehaviour
     {
         if (bought == true)
         {
+            
             if (target == null)
             {
                 FindTarget();
@@ -39,6 +42,7 @@ public class TurretHandler : MonoBehaviour
             else
             {
                 timeUntilFire += Time.deltaTime;
+                animator.SetTrigger("Attack");
 
                 if (timeUntilFire >= 1f / bps)
                 {
@@ -94,5 +98,6 @@ public class TurretHandler : MonoBehaviour
         GameObject bulletObj = Instantiate(bulletPrefab, firingPoint.position, Quaternion.identity);
         BulletHandler bulletScript = bulletObj.GetComponent<BulletHandler>();
         bulletScript.SetTarget(target, 50f);         //target and damage amount have to be passed
+
     }
 }

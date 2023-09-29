@@ -6,20 +6,22 @@ using UnityEngine;
 public class BulletHandler : MonoBehaviour
 {
     [Header("References")]
+    public Animator animator;
     [SerializeField] private Rigidbody2D rb;
 
     [Header("Attributes")]
     [SerializeField] private float bulletSpeed = 5f;
-    [SerializeField] private int bulletDmg = 1;
+    private float bulletDmg;
 
     private Transform target;
 
-    public void SetTarget(Transform _target)
+    public void SetTarget(Transform _target, float _dmg)
     {
         target = _target;
+        bulletDmg = _dmg;
     }
 
-    private void FixedUpdate()
+    private void Start()
     {
         if (!target) return;
         transform.position = Vector3.MoveTowards(transform.position, target.transform.position, bulletSpeed * Time.deltaTime);
@@ -31,10 +33,23 @@ public class BulletHandler : MonoBehaviour
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
     }
 
+    private void Update()
+    {
+        rb.velocity = (transform.right * bulletSpeed);  
+        //Destroy bullet if there is no target
+
+        if (!target)
+        {
+            Destroy(gameObject);
+        }
+    }
+
     private void OnCollisionEnter2D(Collision2D other)
     {
+        animator.SetTrigger("Hit");
 		if(other.gameObject.layer == 8) return;
 
+        other.gameObject.GetComponent<EnemyMovement>().e_IsHit.Invoke();
         other.gameObject.GetComponent<HealthHandler>().TakeDamage(bulletDmg);
         Destroy(gameObject);
     }

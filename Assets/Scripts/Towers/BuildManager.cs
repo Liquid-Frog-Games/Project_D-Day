@@ -6,7 +6,6 @@ using UnityEngine.EventSystems;
 
 public class BuildManager : MonoBehaviour
 {
-
     public static BuildManager main;
 
     [Header("References")]
@@ -28,6 +27,7 @@ public class BuildManager : MonoBehaviour
             Debug.Log("Not selected");
             return null;
         }
+
         return towers[selectedTower]; 
     }
 

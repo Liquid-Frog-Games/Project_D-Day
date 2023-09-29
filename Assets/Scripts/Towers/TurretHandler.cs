@@ -6,12 +6,15 @@ using UnityEditor;
 public class TurretHandler : MonoBehaviour
 {
     [Header("Attributes")]
+    public Animator animator;
     [SerializeField] private float targetingRange = 3f;
     [SerializeField] private float rotationSpeed = 200f;
     [SerializeField] private float bps = 1f;        // Bullet per second
 
+    public bool bought = false;
 
     [Header("References")]
+    public Animator anim;
     [SerializeField] private Transform turretRotationPoint;
     [SerializeField] private LayerMask enemyMask;
     [SerializeField] private GameObject bulletPrefab;
@@ -22,29 +25,37 @@ public class TurretHandler : MonoBehaviour
 
     void Update()
     {
-        if (target == null)
+        if (bought == true)
         {
-            FindTarget();
-            return;
-        }
-
-        RotateTowardsTarget();
-        if (!CheckTargetIsInRange())
-        {
-            target = null;
-        }
-        else
-        {
-            timeUntilFire += Time.deltaTime;
-
-            if (timeUntilFire >= 1f / bps)
+            
+            if (target == null)
             {
-                Shoot();
-                timeUntilFire = 0f;
+                FindTarget();
+                return;
+            }
+
+            RotateTowardsTarget();
+            if (!CheckTargetIsInRange())
+            {
+                target = null;
+            }
+            else
+            {
+                timeUntilFire += Time.deltaTime;
+                animator.SetTrigger("Attack");
+
+                if (timeUntilFire >= 1f / bps)
+                {
+                    Shoot();
+                    timeUntilFire = 0f;
+                }
             }
         }
+        return;
+        
     }
 
+    //Enable the range circle in Unity editor, NOTE: THIS MUST BE DISABLED FOR BUILDS, IT WILL CRASH OTHERWISE
     #if UNITY_Editor
     private void OnDrawGizmosSelected()
     {
@@ -53,6 +64,10 @@ public class TurretHandler : MonoBehaviour
     }
     #endif
 
+    public void ToggleActive()
+    {
+        bought = true;
+    }
     private void FindTarget()
     {
         RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, targetingRange, (Vector2)transform.position,
@@ -82,6 +97,7 @@ public class TurretHandler : MonoBehaviour
     {
         GameObject bulletObj = Instantiate(bulletPrefab, firingPoint.position, Quaternion.identity);
         BulletHandler bulletScript = bulletObj.GetComponent<BulletHandler>();
-        bulletScript.SetTarget(target);
+        bulletScript.SetTarget(target, 50f);         //target and damage amount have to be passed
+
     }
 }

@@ -1,53 +1,208 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class EnemyMovement : MonoBehaviour
 {
-    [Header("References")] 
-	[SerializeField] private Rigidbody2D rb;
-	public HealthHandler health;
-   
+    [Header("References")]
+    [SerializeField] private Rigidbody2D rb;
+
+    public Animator anim;
+    public HealthHandler health;
+    public bool isFrozen = false;
+
     [Header("Attributes")]
     [SerializeField] private float moveSpeed = 2f;
 
+    //Pathfinding
     private Transform target;
     private int pathIndex = 0;
+    private int availablePaths;
+    private int chosenPathInt;
+    private Transform[] chosenPath;
+
+    //Animations
+    private bool isInterrupted = false;
+    private bool isDead = false;
+    private bool isAttacking = false;
+    private float previousVelocityX;
+    private float previousVelocityY;
+
+    [Header("Events")]
+    public UnityEvent e_IsHit = new UnityEvent();
+    public UnityEvent e_IsDead = new UnityEvent();
 
     private void Start()
     {
-        target = LevelManager.main.path[pathIndex];
+        //Get the length of pathChoises for all the possible paths
+        availablePaths = LevelManager.main.pathChoices.Length;
+
+        //Choose a random array of the possibilities
+        chosenPathInt = Random.Range(0, availablePaths);
+
+        //Get this choice and call it chosenPath
+        chosenPath = LevelManager.main.pathChoices[chosenPathInt].waypoints;
+
+        target = chosenPath[pathIndex];
     }
-    
+
+    public void Awake()
+    {
+        e_IsHit.AddListener(StartIsHit);
+        e_IsDead.AddListener(StartIsDead);
+    }
+
     private void Update()
     {
-        if(Vector2.Distance(target.position, transform.position) <= 0.1f ){
-			pathIndex++;
+        if (!isDead)
+        {
+            //check if waypoint is reached, if so go to next point
+            if(Vector2.Distance(target.position, transform.position) <= 0.1f ){
+                pathIndex++;
 
-			if (pathIndex == LevelManager.main.path.Length){
+                //Did we reach the endpoint?
+                if (pathIndex == chosenPath.Length){
 
-				EnemySpawner.onEnemyDestroy.Invoke();
-				LevelManager.main.lives -= health.hitPoints;
-				Destroy(gameObject);
+                    if (target.gameObject.name == "AttackPoint")
+                    {
+                        StartCoroutine(IsAttacking());
+                    }
+                    else
+                    {
+                        //Do damage and commit sudoku
+                        LevelManager.main.lives -= health.dmg;
 
-				if (LevelManager.main.lives <= 0)
-				{
-				LevelManager.main.lives = 0;
-                 LevelManager.e_GameOver.Invoke();
-				}
+                        //Destroy enemy
+                        EnemySpawner.onEnemyDestroy.Invoke();
+                        LevelManager.main.enemyList.Remove(gameObject);
+                        Destroy(gameObject);
+                    }
 
-				return;	
-			}	else {
-             		target = LevelManager.main.path[pathIndex];
-			}
-		}
+                    //Did the player die?
+                    if (LevelManager.main.lives <= 0f)
+                    {
+                        //Initiate game over scripts
+                        LevelManager.main.lives = 0f;
+                        LevelManager.e_GameOver.Invoke();
+                    }
+
+                    return;
+                }	else {
+                    if (!isAttacking)
+                    {
+                        //set the target waypoint to the next one in the array
+                        target = chosenPath[pathIndex];
+                    }
+                }
+            }
+        }
+
+        //Set the velocity of the previous frame if not interrupted
+        if (!isInterrupted)
+        {
+            SetPreviousVelocity();
+        }
+
+        //Apply directional animations
+        anim.SetFloat("Horizontal", previousVelocityX);
+        anim.SetFloat("Vertical", previousVelocityY);
     }
 
-
     private void FixedUpdate() {
-		Vector2 direction = (target.position - transform.position).normalized;
+        Vector2 direction = (target.position - transform.position).normalized;
 
-		rb.velocity = direction * moveSpeed;
-	}
+        rb.velocity = direction * moveSpeed;
+    }
 
+    private void SetPreviousVelocity()
+    {
+        previousVelocityX = rb.velocity.x;
+        previousVelocityY = rb.velocity.y;
+    }
+
+    private void StartIsHit()
+    {
+        StartCoroutine(IsHit());
+    }
+
+    public void StartIsDead()
+    {
+        StartCoroutine(IsDead());
+    }
+
+    public void FreezeEnemy()
+    {
+        isInterrupted = true;
+        rb.constraints = RigidbodyConstraints2D.FreezeAll;
+    }
+
+    public void UnFreezeEnemy()
+    {
+        if (!isDead)
+        {
+            if (rb)
+            {
+                rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+                isInterrupted = false;
+            }
+        }
+    }
+
+    //GetHit
+    public IEnumerator IsHit()
+    {
+        //Freeze enemy
+        FreezeEnemy();
+
+        //Trigger animation and wait till its done
+        anim.SetTrigger("GetHit");
+        yield return new WaitForSeconds(0.5f);
+
+        //Unfreeze enemy
+        if (!isFrozen)
+        {
+            UnFreezeEnemy();
+        }
+    }
+
+    //IsDead
+    private IEnumerator IsDead()
+    {
+        //Freeze enemy
+        isDead = true;
+        FreezeEnemy();
+
+        //Start animation and destroy
+        anim.SetBool("Death", true);
+        LevelManager.main.enemyList.Remove(gameObject);
+        yield return new WaitForSeconds(0.9f);
+        Destroy(gameObject);
+    }
+
+    //IsAttacking
+    private IEnumerator IsAttacking()
+    {
+        isAttacking = true;
+
+        //Freeze enemy
+        FreezeEnemy();
+
+        while (LevelManager.main.lives > 0f)
+        {
+            //Play animation
+            anim.SetBool("Attack", true);
+
+            //Do damage
+            LevelManager.main.lives -= health.dmg;
+            yield return new WaitForSeconds(1f);
+        }
+
+        if (LevelManager.main.lives <= 0f)
+        {
+            //Initiate game over scripts
+            LevelManager.main.lives = 0f;
+            LevelManager.e_GameOver.Invoke();
+        }
+    }
 }

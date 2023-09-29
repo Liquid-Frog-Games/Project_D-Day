@@ -14,9 +14,10 @@ GameObject:
   - component: {fileID: 7605968439586607891}
   - component: {fileID: 8352929708561886502}
   - component: {fileID: 5852211543595255129}
+  - component: {fileID: 796443078649405891}
   m_Layer: 6
   m_Name: Enemy1
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -163,8 +164,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 8947486838687604714}
+  anim: {fileID: 0}
   health: {fileID: 5852211543595255129}
   moveSpeed: 1
+  e_IsHit:
+    m_PersistentCalls:
+      m_Calls: []
+  e_IsDead:
+    m_PersistentCalls:
+      m_Calls: []
+  e_IsAttacking:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &5852211543595255129
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -177,5 +188,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec09d10244be44a9f98133c626986d41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  em: {fileID: 8352929708561886502}
   currencyWorth: 10
   hitPoints: 2
+  dmg: 1
+--- !u!210 &796443078649405891
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4241095294277776868}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_SortAtRoot: 1

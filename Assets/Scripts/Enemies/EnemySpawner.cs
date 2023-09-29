@@ -8,23 +8,29 @@ public class EnemySpawner : MonoBehaviour
 {
     public static EnemySpawner main;
 
+    public int levelToUnlock;
+
     [Header("References")]
     [SerializeField] private GameObject[] enemyPrefabs;
+    
+    [SerializeField] private GameObject starWaveBtn;
+    [SerializeField] private GameObject victoryScreen;
+    public int waveGoal = 1;
 
     [Header("Attributes")]
     [SerializeField] private int baseEnemies;
     [SerializeField] private float enemiesPerSecond;
     [SerializeField] private float timeBetweenWaves;
-    [SerializeField] private float difficultyScalingFactor;
     [SerializeField] private TextMeshProUGUI roundUI;
 
     public int currentWave = 1;
     public int enemySelectMax = 0;
   
     private float timeSinceLastSpawn;
-    private int enemiesAlive;
-    private int enemiesLeftToSpawn;
-    private bool isSpawning = false;
+    public int enemiesAlive;
+    public int enemiesLeftToSpawn;
+    public bool isSpawning = false;
+    private GameObject newEnemy;
 
 
     [Header("Events")]
@@ -32,11 +38,11 @@ public class EnemySpawner : MonoBehaviour
 
     void Awake()
     {
+        main = this;
+
         baseEnemies = 8;
         enemiesPerSecond = 0.5f;
         timeBetweenWaves = 5f;
-        difficultyScalingFactor = 0.75f;
-        StartCoroutine(StartWave());
         onEnemyDestroy.AddListener(EnemyDestroyed);
     }
 
@@ -68,14 +74,43 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
+    //Startwave for the button
+    public void StartWaveButton()
+    {
+        StartCoroutine(StartWave());
+        starWaveBtn.SetActive(false);
+    }
+
     //called at the end of the wave
-    private void EndWave()
+    public void EndWave()
     {
         isSpawning = false;
         timeSinceLastSpawn = 0f;
+        enemiesLeftToSpawn = 0;
+
+        if (currentWave == waveGoal)
+        {
+            LevelComplete();
+            return;
+        }
+
+        NextWave();
+    }
+
+    public void NextWave()
+    {
         currentWave++;
         roundUI.text = currentWave.ToString();
         WaveDifficulty();
+    }
+
+    private void LevelComplete()
+    {
+        Time.timeScale = 0f;
+        victoryScreen.SetActive(true);
+
+        //Save level reached
+        PlayerPrefs.SetInt("levelReached", levelToUnlock);
     }
 
     //increases the wave difficulty if the wave is an even number
@@ -87,10 +122,10 @@ public class EnemySpawner : MonoBehaviour
                 enemySelectMax += 1;
             }
             timeBetweenWaves -= 0.2f;
-            difficultyScalingFactor += 0.25f;
             StartCoroutine(StartWave());
 
         }
+        baseEnemies += 4;
         StartCoroutine(StartWave());
     }
     //on enemy destroyed
@@ -109,13 +144,12 @@ public class EnemySpawner : MonoBehaviour
     private void SpawnEnemy()
     {
         GameObject prefabToSpawn = enemyPrefabs[Random.Range(0, enemySelectMax)];
-        Instantiate(prefabToSpawn, LevelManager.main.startPoint.position, Quaternion.identity);
+        newEnemy = Instantiate(prefabToSpawn, LevelManager.main.startPoint.position, Quaternion.identity);
+        LevelManager.main.enemyList.Add(newEnemy);
     }
     //calculates the enemy per wave
     private int EnemiesPerWave()
     {
-        return Mathf.RoundToInt(baseEnemies * Mathf.Pow(currentWave, difficultyScalingFactor));
+        return Mathf.RoundToInt(baseEnemies);
     }
-
-
 }

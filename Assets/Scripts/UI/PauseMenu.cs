@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
+
+    public EnemySpawner es;
     public static bool gameIsPaused = false;
     public GameObject pauseMenu;
     public GameObject playButton;
@@ -28,6 +30,23 @@ public class PauseMenu : MonoBehaviour
         gameIsPaused = true;
     }
 
+    public void NextStage()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);       //Set to next screen
+    }
+
+    public void Freeplay()
+    {
+        pauseMenu.SetActive(false);
+        playButton.SetActive(false);
+        pauseButton.SetActive(true);
+        Time.timeScale = 1f;
+        gameIsPaused = false;
+
+        es.NextWave();
+    }
+
     public void RestartStage()
     {
         Time.timeScale = 1f;
@@ -37,6 +56,6 @@ public class PauseMenu : MonoBehaviour
     public void QuitStage()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);       //set to screen 1 (or 2 if level selecter)
+        SceneManager.LoadScene("00_Main_Menu");
     }
 }

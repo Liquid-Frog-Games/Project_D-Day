@@ -12,7 +12,7 @@ public class HealthHandler : MonoBehaviour
     public float dmg = 1f;
     public int soulValue = 1;
 
-    private bool isDestroyed = false; 
+    private bool isDestroyed = false;
 
     //When hit by a bullet, take damage according to the bullet colliding
     public void TakeDamage(float dmg)

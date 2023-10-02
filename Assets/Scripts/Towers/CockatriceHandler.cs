@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-public class HydraHandler : MonoBehaviour
+public class CockatriceHandler : MonoBehaviour
 {
     [Header("Attributes")]
     public Animator animator;
@@ -26,6 +26,7 @@ public class HydraHandler : MonoBehaviour
     {
         if (bought == true)
         {
+
             if (target == null)
             {
                 FindTarget();
@@ -41,15 +42,16 @@ public class HydraHandler : MonoBehaviour
             {
                 timeUntilFire += Time.deltaTime;
                 animator.SetTrigger("Attack");
+
                 if (timeUntilFire >= 1f / bps)
                 {
-                    
                     Shoot();
-                    Invoke("Shoot", 0.2f);
                     timeUntilFire = 0f;
                 }
             }
         }
+        return;
+
     }
 
     //Enable the range circle in Unity editor, NOTE: THIS MUST BE DISABLED FOR BUILDS, IT WILL CRASH OTHERWISE
@@ -65,18 +67,15 @@ public class HydraHandler : MonoBehaviour
     {
         bought = true;
     }
-
     private void FindTarget()
     {
         RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, targetingRange, (Vector2)transform.position,
-        0f, enemyMask);
-      
+            0f, enemyMask);
+
         if (hits.Length > 0)
-            {
-                target = hits[0].transform;
-            }
-        
-       
+        {
+            target = hits[0].transform;
+        }
     }
 
     private void RotateTowardsTarget()
@@ -96,7 +95,8 @@ public class HydraHandler : MonoBehaviour
     private void Shoot()
     {
         GameObject bulletObj = Instantiate(bulletPrefab, firingPoint.position, Quaternion.identity);
-        BulletHandler bulletScript = bulletObj.GetComponent<BulletHandler>();
-        bulletScript.SetTarget(target, 27.5f);    //target and damage amount have to be passed
+        PoisonHandler bulletScript = bulletObj.GetComponent<PoisonHandler>();
+        bulletScript.SetTarget(target);         //target and damage amount have to be passed
+
     }
 }

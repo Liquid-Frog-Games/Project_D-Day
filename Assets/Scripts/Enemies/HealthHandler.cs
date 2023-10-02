@@ -8,17 +8,19 @@ public class HealthHandler : MonoBehaviour
 
     [Header("Attributes")]
     [SerializeField] private int currencyWorth = 50;
-    public float hitPoints = 1f;
+    public float hitPoints;
     public float dmg = 1f;
     public int soulValue = 1;
 
     private bool isDestroyed = false;
+    public float totalTimeInSeconds = 4f;
 
     //When hit by a bullet, take damage according to the bullet colliding
     public void TakeDamage(float dmg)
     {
         hitPoints -= dmg;
 
+        Debug.Log(dmg.ToString());
         if (hitPoints <= 0f && !isDestroyed)
         {
             EnemySpawner.onEnemyDestroy.Invoke();

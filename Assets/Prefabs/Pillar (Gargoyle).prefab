@@ -296,6 +296,100 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &4252424773984889304
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1671976846780386515}
+  - component: {fileID: 6665294080486870663}
+  m_Layer: 0
+  m_Name: Shadow pillar
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1671976846780386515
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4252424773984889304}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8825499107694406015}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &6665294080486870663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4252424773984889304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_ComponentVersion: 1
+  m_HasRenderer: 0
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: 0000000001000000
+  m_ShapePath:
+  - {x: -0.10412598, y: -0.04197693, z: 0}
+  - {x: -0.11514282, y: -0.041534424, z: 0}
+  - {x: -0.11514282, y: -0.03138733, z: 0}
+  - {x: -0.12527466, y: -0.031158447, z: 0}
+  - {x: -0.12573242, y: -0.009963989, z: 0}
+  - {x: -0.13519287, y: -0.010650635, z: 0}
+  - {x: -0.13519287, y: 0.051864624, z: 0}
+  - {x: -0.124816895, y: 0.05230713, z: 0}
+  - {x: -0.12484741, y: 0.06271362, z: 0}
+  - {x: -0.11520386, y: 0.06263733, z: 0}
+  - {x: -0.11480713, y: 0.07319641, z: 0}
+  - {x: -0.08331299, y: 0.073028564, z: 0}
+  - {x: -0.08364868, y: 0.0834198, z: 0}
+  - {x: -0.041778564, y: 0.08358765, z: 0}
+  - {x: -0.04171753, y: 0.094177246, z: 0}
+  - {x: 0.04159546, y: 0.093826294, z: 0}
+  - {x: 0.041931152, y: 0.08358765, z: 0}
+  - {x: 0.08319092, y: 0.08343506, z: 0}
+  - {x: 0.0836792, y: 0.07319641, z: 0}
+  - {x: 0.11480713, y: 0.072753906, z: 0}
+  - {x: 0.11468506, y: 0.062683105, z: 0}
+  - {x: 0.12478638, y: 0.06277466, z: 0}
+  - {x: 0.12509155, y: 0.052474976, z: 0}
+  - {x: 0.1354065, y: 0.051513672, z: 0}
+  - {x: 0.1357727, y: -0.010513306, z: 0}
+  - {x: 0.12478638, y: -0.010391235, z: 0}
+  - {x: 0.12527466, y: -0.031219482, z: 0}
+  - {x: 0.11428833, y: -0.031219482, z: 0}
+  - {x: 0.11462402, y: -0.041748047, z: 0}
+  - {x: 0.10473633, y: -0.041748047, z: 0}
+  - {x: 0.10455322, y: -0.103897095, z: 0}
+  - {x: -0.1043396, y: -0.10385132, z: 0}
+  m_ShapePathHash: -1031054267
+  m_Mesh: {fileID: 0}
+  m_InstanceId: 49588
+  m_LocalBounds:
+    m_Center: {x: 0.000289917, y: -0.0048599243, z: 0}
+    m_Extent: {x: 0.13548279, y: 0.09903717, z: 0}
 --- !u!1 &5192501820617206805
 GameObject:
   m_ObjectHideFlags: 0
@@ -343,7 +437,7 @@ GameObject:
   - component: {fileID: 8825499107694406015}
   - component: {fileID: 3551302240725071147}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -360,7 +454,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1671976846780386515}
   m_Father: {fileID: 4214839574290095780}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -646,7 +741,7 @@ MonoBehaviour:
   - {x: 0.2708435, y: 0.27236938, z: 0}
   m_ShapePathHash: 1590059461
   m_Mesh: {fileID: 0}
-  m_InstanceId: 61906
+  m_InstanceId: 49572
   m_LocalBounds:
     m_Center: {x: 0, y: 0.2929535, z: 0}
     m_Extent: {x: 0.2708435, y: 0.26068115, z: 0}

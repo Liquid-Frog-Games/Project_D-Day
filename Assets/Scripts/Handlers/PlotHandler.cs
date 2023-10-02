@@ -169,7 +169,10 @@ public class PlotHandler : MonoBehaviour
         {
             hh.ToggleActive();
         }
-        //TODO add third tower
+        if (tower.TryGetComponent<CockatriceHandler>(out CockatriceHandler ch))
+        {
+            ch.ToggleActive();
+        }
         LevelManager.main.SpendCurrency(towerToBuild.cost);
         BuildManager.main.SetSelectedTower(-1);
         PreviewCanvasGroupOff();

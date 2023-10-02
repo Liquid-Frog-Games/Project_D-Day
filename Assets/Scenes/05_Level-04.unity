@@ -2264,8 +2264,11 @@ MonoBehaviour:
     cost: 100
     prefab: {fileID: 3778199504143487322, guid: 72fb320b2ac4b824c95cde9920a11164, type: 3}
   - name: Hydra
-    cost: 150
+    cost: 200
     prefab: {fileID: 3778199504143487322, guid: 2f0f5472fa276f94ea306a2ee8be49d8, type: 3}
+  - name: Cockatrice
+    cost: 300
+    prefab: {fileID: 8239450447864684166, guid: 72e55b98f91357f42b0a196d310c39ab, type: 3}
   towerSelect:
     m_PersistentCalls:
       m_Calls: []
@@ -10888,6 +10891,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2666608064971806811, guid: aca65556c13fc4d43b03fd2e84d64f9b, type: 3}
   m_PrefabInstance: {fileID: 1253109590}
   m_PrefabAsset: {fileID: 0}
+
 --- !u!43 &1272949427
 Mesh:
   m_ObjectHideFlags: 0
@@ -14333,6 +14337,8 @@ GameObject:
   - component: {fileID: 1625051082}
   - component: {fileID: 1625051084}
   - component: {fileID: 1625051083}
+  - component: {fileID: 1625051086}
+  - component: {fileID: 1625051085}
   m_Layer: 5
   m_Name: Settings
   m_TagString: Untagged
@@ -15627,9 +15633,9 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
+    x: 0.07894737
     y: 0
-    width: 1
+    width: 0.84210527
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
@@ -15920,6 +15926,7 @@ RectTransform:
   - {fileID: 1371073327}
   - {fileID: 911867247}
   - {fileID: 72406896}
+  - {fileID: 2025189882}
   m_Father: {fileID: 2100461114}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -16186,6 +16193,16 @@ Transform:
   m_Children: []
   m_Father: {fileID: 120709919}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2025189881 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3585195262707285747, guid: 4f364f06d5e15481591287360ad4d656, type: 3}
+  m_PrefabInstance: {fileID: 1269161148}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &2025189882 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 1996357292927936637, guid: 4f364f06d5e15481591287360ad4d656, type: 3}
+  m_PrefabInstance: {fileID: 1269161148}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2035754094
 GameObject:
   m_ObjectHideFlags: 0

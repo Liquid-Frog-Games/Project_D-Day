@@ -23,9 +23,20 @@ public class PauseMenu : MonoBehaviour
 
     public void pause()
     {
-        pauseMenu.SetActive(true);
-        playButton.SetActive(true);
-        pauseButton.SetActive(false);
+        if (pauseMenu)
+        {
+            pauseMenu.SetActive(true);    
+        }
+
+        if (playButton)
+        {
+            playButton.SetActive(true);
+        }
+
+        if (pauseButton)
+        {
+            pauseButton.SetActive(false);
+        }
         Time.timeScale = 0f;
         gameIsPaused = true;
     }

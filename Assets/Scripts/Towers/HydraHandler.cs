@@ -43,6 +43,7 @@ public class HydraHandler : MonoBehaviour
                 animator.SetTrigger("Attack");
                 if (timeUntilFire >= 1f / bps)
                 {
+                    
                     Shoot();
                     Invoke("Shoot", 0.2f);
                     timeUntilFire = 0f;
@@ -68,12 +69,14 @@ public class HydraHandler : MonoBehaviour
     private void FindTarget()
     {
         RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, targetingRange, (Vector2)transform.position,
-            0f, enemyMask);
-
+        0f, enemyMask);
+      
         if (hits.Length > 0)
-        {
-            target = hits[0].transform;
-        }
+            {
+                target = hits[0].transform;
+            }
+        
+       
     }
 
     private void RotateTowardsTarget()

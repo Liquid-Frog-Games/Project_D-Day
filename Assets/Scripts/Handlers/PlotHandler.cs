@@ -103,8 +103,7 @@ public class PlotHandler : MonoBehaviour
 
     public void OnMouseDown()
     {
-        if (!IsPointerOverUIObject())
-        {
+        
             if (tower != null)
             {
                 SellCanvasGroupOn();
@@ -124,11 +123,10 @@ public class PlotHandler : MonoBehaviour
                 }
             }
 
-        }
-
     }
 
     //does the element get covered by UI
+    /*
     private bool IsPointerOverUIObject()
     {
         PointerEventData eventDataCurrentPosition = new PointerEventData(EventSystem.current);
@@ -137,7 +135,7 @@ public class PlotHandler : MonoBehaviour
         EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
         return results.Count > 0;
     }
-
+    */
     //preview function
     public void PreviewTower()
     {

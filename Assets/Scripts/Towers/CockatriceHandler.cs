@@ -95,8 +95,8 @@ public class CockatriceHandler : MonoBehaviour
     private void Shoot()
     {
         GameObject bulletObj = Instantiate(bulletPrefab, firingPoint.position, Quaternion.identity);
-        BulletHandler bulletScript = bulletObj.GetComponent<BulletHandler>();
-        bulletScript.SetTarget(target, 50f);         //target and damage amount have to be passed
+        PoisonHandler bulletScript = bulletObj.GetComponent<PoisonHandler>();
+        bulletScript.SetTarget(target);         //target and damage amount have to be passed
 
     }
 }

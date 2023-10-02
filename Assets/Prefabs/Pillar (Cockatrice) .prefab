@@ -298,7 +298,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 8413030171886197290}
-  targetingRange: 3
+  targetingRange: 2
   rotationSpeed: 200
   bps: 1
   bought: 0

@@ -12,7 +12,7 @@ public class EnemySpawner : MonoBehaviour
 
     [Header("References")]
     [SerializeField] private GameObject[] enemyPrefabs;
-    
+
     [SerializeField] private GameObject starWaveBtn;
     [SerializeField] private GameObject victoryScreen;
     public int waveGoal = 1;
@@ -22,6 +22,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private float enemiesPerSecond;
     [SerializeField] private float timeBetweenWaves;
     [SerializeField] private TextMeshProUGUI roundUI;
+    public GameObject waves;
 
     public int currentWave = 1;
     public int enemySelectMax = 0;
@@ -79,6 +80,7 @@ public class EnemySpawner : MonoBehaviour
     {
         StartCoroutine(StartWave());
         starWaveBtn.SetActive(false);
+        waves.SetActive(true);
     }
 
     //called at the end of the wave

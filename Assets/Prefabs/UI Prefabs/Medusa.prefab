@@ -146,7 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b6895b270480470fa63ab96311760fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soulCount: 100
+  soulCount: 0
   soulRequirement: 100
   soulBar: {fileID: 3496154507029509888}
 --- !u!1 &1556441888704652643

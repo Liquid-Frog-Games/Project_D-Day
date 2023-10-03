@@ -4387,8 +4387,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.71094996, y: -0.4309, z: 0}
-    m_Extent: {x: 1.8578501, y: 1.3803, z: 0}
+    m_Center: {x: -0.70370007, y: -0.42895, z: 0}
+    m_Extent: {x: 1.8629, y: 1.3749499, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -13216,8 +13216,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.0316, y: -0.06695001, z: 0}
-    m_Extent: {x: 0.3533, y: 0.42755002, z: 0}
+    m_Center: {x: 0.02775, y: -0.07305001, z: 0}
+    m_Extent: {x: 0.35154998, y: 0.41855, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -13307,8 +13307,6 @@ MonoBehaviour:
   levelToUnlock: 2
   enemyPrefabs:
   - {fileID: 5100600856505084851, guid: 3386d4f331c4b483c8ef8c9a74c52fab, type: 3}
-  - {fileID: 5100600856505084851, guid: 49acad7c250d0bd46ba49d34e5b9b86c, type: 3}
-  - {fileID: 3294945272362565110, guid: 69a01a243b8bb884eb5bcb832c1b3f14, type: 3}
   starWaveBtn: {fileID: 805152960}
   victoryScreen: {fileID: 1456798073}
   waveGoal: 5

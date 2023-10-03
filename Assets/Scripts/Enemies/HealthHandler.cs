@@ -20,7 +20,6 @@ public class HealthHandler : MonoBehaviour
     {
         hitPoints -= dmg;
 
-        Debug.Log(dmg.ToString());
         if (hitPoints <= 0f && !isDestroyed)
         {
             EnemySpawner.onEnemyDestroy.Invoke();

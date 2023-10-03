@@ -66,7 +66,7 @@ public class EnemySpawner : MonoBehaviour
             enemiesLeftToSpawn--;
             enemiesAlive++;
             timeSinceLastSpawn = 0f;
-     
+            enemiesPerSecond = Random.Range(0.5f, 1f);
         }
 
         if (enemiesAlive == 0 && enemiesLeftToSpawn == 0)

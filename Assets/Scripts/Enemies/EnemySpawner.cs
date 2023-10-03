@@ -15,6 +15,8 @@ public class EnemySpawner : MonoBehaviour
 
     [SerializeField] private GameObject starWaveBtn;
     [SerializeField] private GameObject victoryScreen;
+    public AudioSource levelCompleteSound;
+    public AudioSource waveStartSound;
     public int waveGoal = 1;
 
     [Header("Attributes")]
@@ -108,6 +110,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void LevelComplete()
     {
+        levelCompleteSound.Play();
         Time.timeScale = 0f;
         victoryScreen.SetActive(true);
 
@@ -138,6 +141,7 @@ public class EnemySpawner : MonoBehaviour
     //starts the wave
     private IEnumerator StartWave()
     {
+        waveStartSound.Play();
         yield return new WaitForSeconds(timeBetweenWaves);
         isSpawning = true;
         enemiesLeftToSpawn = EnemiesPerWave();

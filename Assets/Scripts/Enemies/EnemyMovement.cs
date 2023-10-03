@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -29,6 +30,13 @@ public class EnemyMovement : MonoBehaviour
     private float previousVelocityX;
     private float previousVelocityY;
 
+    //audio
+    public AudioSource[] attackAudio;
+    private AudioSource randomSwordAudio;
+    public AudioSource[] crumblingAudio;
+    private AudioSource randomCrumblingAudio;
+    public AudioSource battleCry;
+
     [Header("Events")]
     public UnityEvent e_IsHit = new UnityEvent();
     public UnityEvent e_IsDead = new UnityEvent();
@@ -51,6 +59,7 @@ public class EnemyMovement : MonoBehaviour
     {
         e_IsHit.AddListener(StartIsHit);
         e_IsDead.AddListener(StartIsDead);
+        StartCoroutine(PlayBattlecry());
     }
 
     private void Update()
@@ -128,11 +137,13 @@ public class EnemyMovement : MonoBehaviour
 
     public void StartIsDead()
     {
+        StopCoroutine(PlayBattlecry());
         StartCoroutine(IsDead());
     }
 
     public void FreezeEnemy()
     {
+        StopCoroutine(PlayBattlecry());
         isInterrupted = true;
         rb.constraints = RigidbodyConstraints2D.FreezeAll;
     }
@@ -145,6 +156,7 @@ public class EnemyMovement : MonoBehaviour
             {
                 rb.constraints = RigidbodyConstraints2D.FreezeRotation;
                 isInterrupted = false;
+                StartCoroutine(PlayBattlecry());
             }
         }
     }
@@ -192,7 +204,8 @@ public class EnemyMovement : MonoBehaviour
         {
             //Play animation
             anim.SetBool("Attack", true);
-
+            //play sounds
+            StartCoroutine(AttackSoundsLoop());
             //Do damage
             LevelManager.main.lives -= health.dmg;
             yield return new WaitForSeconds(1f);
@@ -200,9 +213,35 @@ public class EnemyMovement : MonoBehaviour
 
         if (LevelManager.main.lives <= 0f)
         {
+            StopCoroutine(AttackSoundsLoop());
             //Initiate game over scripts
             LevelManager.main.lives = 0f;
             LevelManager.e_GameOver.Invoke();
         }
+    }
+
+    private IEnumerator AttackSoundsLoop()
+    {
+        //sword sounds
+        int randomInt = UnityEngine.Random.Range(0, attackAudio.Length);
+        randomSwordAudio = attackAudio[randomInt];
+        randomSwordAudio.Play();
+
+        //dungeon sounds
+        int randomCrumbInt = UnityEngine.Random.Range(0, crumblingAudio.Length);
+        randomCrumblingAudio = crumblingAudio[randomCrumbInt];
+        randomCrumblingAudio.Play();
+
+        yield return new WaitForSeconds(0.5f);
+    }
+
+    private IEnumerator PlayBattlecry()
+    {
+        int randomInt = Random.Range(0, 10);
+        if(randomInt == 9)
+        {
+            battleCry.Play();
+        }
+        yield return new WaitForSeconds(30f);
     }
 }

@@ -5,9 +5,11 @@ using static Unity.VisualScripting.Member;
 
 public class DontDestroy : MonoBehaviour
 {
+    public AudioSource backgroundMusic;
     void Awake()
     {
-        int MusicPlayingCount = FindObjectsOfType<AudioSource>().Length;
+       
+        int MusicPlayingCount = 1;
         if (MusicPlayingCount > 1)
         {
             Destroy(gameObject);

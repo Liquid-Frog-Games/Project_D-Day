@@ -15,6 +15,7 @@ public class TurretHandler : MonoBehaviour
 
     [Header("References")]
     public Animator anim;
+    public AudioSource gargoyleRoar;
     [SerializeField] private Transform turretRotationPoint;
     [SerializeField] private LayerMask enemyMask;
     [SerializeField] private GameObject bulletPrefab;
@@ -33,7 +34,7 @@ public class TurretHandler : MonoBehaviour
                 FindTarget();
                 return;
             }
-
+            StartCoroutine(PlayRoar());
             RotateTowardsTarget();
             if (!CheckTargetIsInRange())
             {
@@ -99,5 +100,15 @@ public class TurretHandler : MonoBehaviour
         BulletHandler bulletScript = bulletObj.GetComponent<BulletHandler>();
         bulletScript.SetTarget(target, 50f);         //target and damage amount have to be passed
 
+    }
+
+    private IEnumerator PlayRoar()
+    {
+        int randomInt = Random.Range(0, 10);
+        if (randomInt == 9)
+        {
+            gargoyleRoar.Play();
+        }
+        yield return new WaitForSeconds(30f);
     }
 }

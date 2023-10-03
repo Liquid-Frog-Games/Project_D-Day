@@ -14,6 +14,7 @@ public class HydraHandler : MonoBehaviour
     public bool bought = false;
 
     [Header("References")]
+    public AudioSource hydraRoar;
     [SerializeField] private Transform turretRotationPoint;
     [SerializeField] private LayerMask enemyMask;
     [SerializeField] private GameObject bulletPrefab;
@@ -31,7 +32,7 @@ public class HydraHandler : MonoBehaviour
                 FindTarget();
                 return;
             }
-
+            StartCoroutine(PlayRoar());
             RotateTowardsTarget();
             if (!CheckTargetIsInRange())
             {
@@ -98,5 +99,15 @@ public class HydraHandler : MonoBehaviour
         GameObject bulletObj = Instantiate(bulletPrefab, firingPoint.position, Quaternion.identity);
         BulletHandler bulletScript = bulletObj.GetComponent<BulletHandler>();
         bulletScript.SetTarget(target, 27.5f);    //target and damage amount have to be passed
+    }
+
+    private IEnumerator PlayRoar()
+    {
+        int randomInt = Random.Range(0, 10);
+        if (randomInt == 9)
+        {
+           hydraRoar.Play();
+        }
+        yield return new WaitForSeconds(30f);
     }
 }

@@ -24,6 +24,9 @@ public class PlotHandler : MonoBehaviour
     public Canvas previewCanvas;
     public Canvas sellCanvas;
 
+    //audio
+    public AudioSource placementSound;
+    public AudioSource cancelSound;
 
     //textmesh
     public TextMeshProUGUI sellPrice;
@@ -173,6 +176,7 @@ public class PlotHandler : MonoBehaviour
         }
         LevelManager.main.SpendCurrency(towerToBuild.cost);
         BuildManager.main.SetSelectedTower(-1);
+        placementSound.Play();
         PreviewCanvasGroupOff();
         spriteRenderer.sprite = null;
         return;
@@ -181,6 +185,7 @@ public class PlotHandler : MonoBehaviour
     //canceling the preview
     public void CancelTower()
     {
+        cancelSound.Play();
         towerToBuild = null;
         Destroy(tower);
         BuildManager.main.SetSelectedTower(-1);
@@ -191,6 +196,7 @@ public class PlotHandler : MonoBehaviour
 
     public void SellTower()
     {
+        cancelSound.Play();
         LevelManager.main.IncreaseCurrency(towerToBuild.cost / 2);
         towerToBuild = null;
         Destroy(tower);

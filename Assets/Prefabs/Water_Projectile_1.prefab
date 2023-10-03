@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7323060379828352294}
   - component: {fileID: 1834044128491360833}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 4677918556484636888}
   - component: {fileID: -2335712825098662924}
   - component: {fileID: -1751046368458967307}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: Water_Projectile_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

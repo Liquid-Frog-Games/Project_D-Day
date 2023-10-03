@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 766727151292580554}
   - component: {fileID: 9129662493739334476}
   - component: {fileID: 3069303608677528960}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: Fire_Projectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -210,7 +210,7 @@ GameObject:
   m_Component:
   - component: {fileID: 519405356186110652}
   - component: {fileID: 8447546184941939126}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}

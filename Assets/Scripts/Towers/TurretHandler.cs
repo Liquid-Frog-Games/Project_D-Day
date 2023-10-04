@@ -15,14 +15,20 @@ public class TurretHandler : MonoBehaviour
 
     [Header("References")]
     public Animator anim;
+    public AudioSource gargoyleRoar;
     [SerializeField] private Transform turretRotationPoint;
     [SerializeField] private LayerMask enemyMask;
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform firingPoint;
+    [SerializeField] private GameObject range;
 
     private Transform target;
     private float timeUntilFire;
 
+    private void Start()
+    {
+        range.transform.localScale = new Vector3(targetingRange, targetingRange, 0);
+    }
     void Update()
     {
         if (bought == true)
@@ -33,7 +39,7 @@ public class TurretHandler : MonoBehaviour
                 FindTarget();
                 return;
             }
-
+            StartCoroutine(PlayRoar());
             RotateTowardsTarget();
             if (!CheckTargetIsInRange())
             {
@@ -66,6 +72,7 @@ public class TurretHandler : MonoBehaviour
 
     public void ToggleActive()
     {
+        Destroy(range);
         bought = true;
     }
     private void FindTarget()
@@ -99,5 +106,15 @@ public class TurretHandler : MonoBehaviour
         BulletHandler bulletScript = bulletObj.GetComponent<BulletHandler>();
         bulletScript.SetTarget(target, 50f);         //target and damage amount have to be passed
 
+    }
+
+    private IEnumerator PlayRoar()
+    {
+        int randomInt = Random.Range(0, 10);
+        if (randomInt == 9)
+        {
+            gargoyleRoar.Play();
+        }
+        yield return new WaitForSeconds(30f);
     }
 }

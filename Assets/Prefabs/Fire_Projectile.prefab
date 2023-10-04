@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 766727151292580554}
   - component: {fileID: 9129662493739334476}
   - component: {fileID: 3069303608677528960}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: Fire_Projectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -78,7 +78,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -167885048, guid: 76038dad46e5e4f458e20be8d0ab46c5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -177,7 +177,7 @@ SortingGroup:
   m_Enabled: 1
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_SortAtRoot: 1
 --- !u!95 &3069303608677528960
 Animator:
@@ -210,7 +210,7 @@ GameObject:
   m_Component:
   - component: {fileID: 519405356186110652}
   - component: {fileID: 8447546184941939126}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}

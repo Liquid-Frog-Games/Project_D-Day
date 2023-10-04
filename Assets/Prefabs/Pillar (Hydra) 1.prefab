@@ -260,7 +260,7 @@ MonoBehaviour:
   turretRotationPoint: {fileID: 4302407872440057422}
   enemyMask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 128
   bulletPrefab: {fileID: 5538894285866829587, guid: bf413b610b7f2be45888dbc942fcf989, type: 3}
   firingPoint: {fileID: 2751582216195682780}
 --- !u!210 &-3378182779701350991

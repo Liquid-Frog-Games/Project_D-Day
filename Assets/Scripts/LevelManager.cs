@@ -28,6 +28,7 @@ public class LevelManager : MonoBehaviour
     [Header("References")]
     public float lives;
     public int coins;
+	public GameObject speechBubble;
 
     private void Awake()
     {
@@ -37,7 +38,11 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
-        notificationText.enabled = false; 
+        notificationText.enabled = false;
+		if(speechBubble)
+		{
+			StartCoroutine(hideBubble());
+		}
     }
 
     public void IncreaseCurrency(int amount)
@@ -89,4 +94,10 @@ public class LevelManager : MonoBehaviour
         //starts notifcation above
         StartCoroutine(sendNotification("You don't have enough coins for this tower.", 3, notificationSound)); 
     }
+
+	public IEnumerator hideBubble()
+	{
+		yield return new WaitForSeconds(5f);
+		speechBubble.SetActive(false);
+	}
 }

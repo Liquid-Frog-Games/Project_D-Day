@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7666703230524742813}
   - component: {fileID: 2777596419017388506}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,6 +97,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy1 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4241095294277776868, guid: 4e06b232a05a74512a79770204056ecf, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 4862760104124790158, guid: 4e06b232a05a74512a79770204056ecf, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -167,7 +171,7 @@ PrefabInstance:
       objectReference: {fileID: -3566554365005474074}
     - target: {fileID: 8352929708561886502, guid: 4e06b232a05a74512a79770204056ecf, type: 3}
       propertyPath: moveSpeed
-      value: 1.5
+      value: 1.2
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7568941501428632020, guid: 4e06b232a05a74512a79770204056ecf, type: 3}

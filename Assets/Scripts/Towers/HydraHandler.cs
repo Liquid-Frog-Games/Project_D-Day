@@ -12,6 +12,7 @@ public class HydraHandler : MonoBehaviour
     [SerializeField] private float bps = 1f;        // Bullet per second
 
     public bool bought = false;
+    private bool hasShot = false;
 
     [Header("References")]
     public AudioSource hydraRoar;
@@ -48,13 +49,15 @@ public class HydraHandler : MonoBehaviour
             else
             {
                 timeUntilFire += Time.deltaTime;
-                animator.SetTrigger("Attack");
+
                 if (timeUntilFire >= 1f / bps)
                 {
-                    
-                    Shoot();
-                    Invoke("Shoot", 0.2f);
-                    timeUntilFire = 0f;
+                    timeUntilFire = 1f / bps;
+
+                    if (timeUntilFire == 1f / bps)
+                    {
+                        StartCoroutine(prepShot());
+                    }
                 }
             }
         }
@@ -85,8 +88,6 @@ public class HydraHandler : MonoBehaviour
             {
                 target = hits[0].transform;
             }
-        
-       
     }
 
     private void RotateTowardsTarget()
@@ -110,6 +111,19 @@ public class HydraHandler : MonoBehaviour
         bulletScript.SetTarget(target, 27.5f);    //target and damage amount have to be passed
     }
 
+    private IEnumerator prepShot()
+    {
+        hasShot = false;
+        animator.SetTrigger("Attack");
+        yield return new WaitForSeconds(0.7f);
+        timeUntilFire = 0f;
+        if (!hasShot)
+        {
+            hasShot = true;
+            Shoot();
+            Invoke("Shoot", 0.2f);
+        }
+
     private IEnumerator PlayRoar()
     {
         int randomInt = Random.Range(0, 10);
@@ -118,5 +132,6 @@ public class HydraHandler : MonoBehaviour
            hydraRoar.Play();
         }
         yield return new WaitForSeconds(30f);
+
     }
 }

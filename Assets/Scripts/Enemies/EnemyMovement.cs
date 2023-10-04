@@ -164,17 +164,20 @@ public class EnemyMovement : MonoBehaviour
     //GetHit
     public IEnumerator IsHit()
     {
-        //Freeze enemy
-        FreezeEnemy();
-
-        //Trigger animation and wait till its done
-        anim.SetTrigger("GetHit");
-        yield return new WaitForSeconds(0.5f);
-
-        //Unfreeze enemy
-        if (!isFrozen)
+        if (!isDead)
         {
-            UnFreezeEnemy();
+            //Freeze enemy
+            FreezeEnemy();
+
+            //Trigger animation and wait till its done
+            anim.SetTrigger("GetHit");
+            yield return new WaitForSeconds(0.5f);
+
+            //Unfreeze enemy
+            if (!isFrozen)
+            {
+                UnFreezeEnemy();
+            }
         }
     }
 

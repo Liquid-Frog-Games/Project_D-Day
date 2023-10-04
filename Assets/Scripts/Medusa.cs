@@ -40,9 +40,11 @@ public class Medusa : MonoBehaviour
         if (soulCount >= soulRequirement)
         {
             //Remove Required souls
-            soulCount -= soulRequirement;
+            soulCount = 0;
+
             //play audio
             abilityAudio.Play();
+
             //Get all active enemies on screen
             foreach (var item in LevelManager.main.enemyList)
             {

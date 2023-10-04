@@ -254,7 +254,7 @@ MonoBehaviour:
   animator: {fileID: 5147883358746693704}
   targetingRange: 1.5
   rotationSpeed: 200
-  bps: 1
+  bps: 4
   bought: 0
   anim: {fileID: 3283954782258412197}
   turretRotationPoint: {fileID: 4302407872440057422}

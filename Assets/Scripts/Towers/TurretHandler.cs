@@ -12,6 +12,7 @@ public class TurretHandler : MonoBehaviour
     [SerializeField] private float bps = 1f;        // Bullet per second
 
     public bool bought = false;
+    private bool hasShot = false;
 
     [Header("References")]
     public Animator anim;
@@ -42,12 +43,15 @@ public class TurretHandler : MonoBehaviour
             else
             {
                 timeUntilFire += Time.deltaTime;
-                animator.SetTrigger("Attack");
 
                 if (timeUntilFire >= 1f / bps)
                 {
-                    Shoot();
-                    timeUntilFire = 0f;
+                    timeUntilFire = 1f / bps;
+
+                    if (timeUntilFire == 1f / bps)
+                    {
+                        StartCoroutine(prepShot());
+                    }
                 }
             }
         }
@@ -98,6 +102,18 @@ public class TurretHandler : MonoBehaviour
         GameObject bulletObj = Instantiate(bulletPrefab, firingPoint.position, Quaternion.identity);
         BulletHandler bulletScript = bulletObj.GetComponent<BulletHandler>();
         bulletScript.SetTarget(target, 50f);         //target and damage amount have to be passed
+    }
 
+    private IEnumerator prepShot()
+    {
+        hasShot = false;
+        animator.SetTrigger("Attack");
+        yield return new WaitForSeconds(0.9f);
+        timeUntilFire = 0f;
+        if (!hasShot)
+        {
+            hasShot = true;
+            Shoot();
+        }
     }
 }

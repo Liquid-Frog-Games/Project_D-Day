@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
 using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
@@ -10,7 +11,9 @@ public class PauseMenu : MonoBehaviour
     public GameObject pauseMenu;
     public GameObject playButton;
     public GameObject pauseButton;
+    public Canvas UIcanvas;
 
+    [SerializeField] PlayableDirector timeline;
     public void resume()
     {
         pauseMenu.SetActive(false);
@@ -24,7 +27,7 @@ public class PauseMenu : MonoBehaviour
     {
         if (pauseMenu)
         {
-            pauseMenu.SetActive(true);    
+            pauseMenu.SetActive(true);
         }
 
         if (playButton)
@@ -40,11 +43,22 @@ public class PauseMenu : MonoBehaviour
         gameIsPaused = true;
     }
 
+    private IEnumerator PlayCutscene()
+    {
+        UIcanvas.enabled = false;
+        timeline.Play();
+        yield return new WaitUntil(() => timeline.state == PlayState.Paused);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+
+        //Set to next screen
+    }
+
     public void NextStage()
     {
-
         Time.timeScale = 1f;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);       //Set to next screen
+        StartCoroutine(PlayCutscene());
+
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void Freeplay()

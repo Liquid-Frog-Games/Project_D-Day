@@ -123,6 +123,7 @@ public class HydraHandler : MonoBehaviour
             Shoot();
             Invoke("Shoot", 0.2f);
         }
+    }
 
     private IEnumerator PlayRoar()
     {

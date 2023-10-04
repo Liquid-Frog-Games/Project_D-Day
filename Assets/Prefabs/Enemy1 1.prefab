@@ -147,7 +147,7 @@ PrefabInstance:
       objectReference: {fileID: 1150684647717041009}
     - target: {fileID: 5852211543595255129, guid: 4e06b232a05a74512a79770204056ecf, type: 3}
       propertyPath: dmg
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5852211543595255129, guid: 4e06b232a05a74512a79770204056ecf, type: 3}
       propertyPath: hitPoints

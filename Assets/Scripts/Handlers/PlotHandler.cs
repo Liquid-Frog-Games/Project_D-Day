@@ -24,7 +24,6 @@ public class PlotHandler : MonoBehaviour
     public Canvas previewCanvas;
     public Canvas sellCanvas;
 
-
     //textmesh
     public TextMeshProUGUI sellPrice;
 

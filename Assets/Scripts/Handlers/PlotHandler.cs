@@ -33,13 +33,18 @@ public class PlotHandler : MonoBehaviour
 
     //booleans 
     public bool shopOpen;
+    public bool previewOpen;
     public bool sellPreview;
+
+    //timer
+    public float totalTimeInSeconds = 1f;
 
 
     private void Start()
     {
         shopOpen = false;
         sellPreview = false;
+        previewOpen = false;
         ShopCanvasGroupOff();
         PreviewCanvasGroupOff();
 
@@ -53,6 +58,7 @@ public class PlotHandler : MonoBehaviour
         shopCanvas.GetComponent<CanvasGroup>().alpha = 0;
         shopCanvas.GetComponent<CanvasGroup>().interactable = false;
         shopCanvas.GetComponent<CanvasGroup>().blocksRaycasts = false;
+        StartCoroutine(DoTimer());
     }
 
 
@@ -68,18 +74,22 @@ public class PlotHandler : MonoBehaviour
     private void PreviewCanvasGroupOff()
     {
         //turns the preview UI off
+        previewOpen = false;
         previewCanvas.GetComponent<CanvasGroup>().alpha = 0;
         previewCanvas.GetComponent<CanvasGroup>().interactable = false;
         previewCanvas.GetComponent<CanvasGroup>().blocksRaycasts = false;
+        StartCoroutine(DoTimer());
     }
 
 
     private void PreviewCanvasGroupOn()
     {
         //turns the preview UI on
+        previewOpen = true;
         previewCanvas.GetComponent<CanvasGroup>().alpha = 1;
         previewCanvas.GetComponent<CanvasGroup>().interactable = true;
         previewCanvas.GetComponent<CanvasGroup>().blocksRaycasts = true;
+       
     }
 
     private void SellCanvasGroupOff()
@@ -89,6 +99,7 @@ public class PlotHandler : MonoBehaviour
         sellCanvas.GetComponent<CanvasGroup>().alpha = 0;
         sellCanvas.GetComponent<CanvasGroup>().interactable = false;
         sellCanvas.GetComponent<CanvasGroup>().blocksRaycasts = false;
+        StartCoroutine(DoTimer());
     }
 
 
@@ -106,23 +117,24 @@ public class PlotHandler : MonoBehaviour
 
     public void OnMouseDown()
     {
-        
-            if (tower != null)
-            {
-                SellCanvasGroupOn();
-                return;
-            }
+
+        if (tower != null && previewOpen == false)
+        {
+            SellCanvasGroupOn();
+            return;
+        }        
             else
             {
-                if (shopOpen == false)
+                if (shopOpen == false && previewOpen == false)
                 {
                     ShopCanvasGroupOn();
-                    return;
+                return;
+          
                 }
                 if (shopOpen == true)
                 {
                     ShopCanvasGroupOff();
-                    return;
+                return;
                 }
             }
 
@@ -155,7 +167,7 @@ public class PlotHandler : MonoBehaviour
         }
 
         tower = Instantiate(towerToBuild.prefab, transform.position, Quaternion.identity);
-
+        StartCoroutine(DoTimer());
         return;
     }
 
@@ -179,6 +191,7 @@ public class PlotHandler : MonoBehaviour
         placementSound.Play();
         PreviewCanvasGroupOff();
         spriteRenderer.sprite = null;
+        StartCoroutine(DoTimer());
         return;
     }
 
@@ -191,6 +204,7 @@ public class PlotHandler : MonoBehaviour
         BuildManager.main.SetSelectedTower(-1);
         PreviewCanvasGroupOff();
         ShopCanvasGroupOn();
+        StartCoroutine(DoTimer());
         return;
     }
 
@@ -203,6 +217,7 @@ public class PlotHandler : MonoBehaviour
         BuildManager.main.SetSelectedTower(-1);
         spriteRenderer.sprite = plotSprite;
         SellCanvasGroupOff();
+        StartCoroutine(DoTimer());
         return;
 
     }
@@ -210,5 +225,23 @@ public class PlotHandler : MonoBehaviour
     {
         SellCanvasGroupOff();
         return;
+    }
+
+   
+
+    IEnumerator DoTimer()
+    {
+        float timer = 0;
+        bool timerIsDone = false;
+
+        while (timerIsDone != true)
+        {
+            timer += Time.deltaTime;
+            if (timer > totalTimeInSeconds)
+            {
+                timerIsDone = true; // this will end the loop, and end the coroutine              
+            }
+            yield return null; // wait until the end of the frame
+        }
     }
 }

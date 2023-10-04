@@ -19,9 +19,16 @@ public class CockatriceHandler : MonoBehaviour
     [SerializeField] private LayerMask enemyMask;
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform firingPoint;
+    [SerializeField] private GameObject range;
 
     private Transform target;
     private float timeUntilFire;
+
+
+    private void Start()
+    {
+        range.transform.localScale = new Vector3(targetingRange, targetingRange, 0);
+    }
 
     void Update()
     {
@@ -70,6 +77,8 @@ public class CockatriceHandler : MonoBehaviour
     public void ToggleActive()
     {
         bought = true;
+
+        Destroy(range);
     }
     private void FindTarget()
     {

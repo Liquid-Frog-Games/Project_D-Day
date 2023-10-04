@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,12 +12,18 @@ public class Medusa : MonoBehaviour
     public int soulCount;
     public int soulRequirement;
     public Slider soulBar;
+    public AudioSource readyAudio;
+    public AudioSource abilityAudio;
+    
+    public AudioSource[] petrifyAudio;
+    private AudioSource randomAudio;
 
     private void Start()
     {
         //Sync SoulReq to slider maxValue
         if (soulBar)
         {
+            readyAudio.Play();
             soulBar.maxValue = soulRequirement;
         }
     }
@@ -35,6 +42,9 @@ public class Medusa : MonoBehaviour
             //Remove Required souls
             soulCount = 0;
 
+            //play audio
+            abilityAudio.Play();
+
             //Get all active enemies on screen
             foreach (var item in LevelManager.main.enemyList)
             {
@@ -51,9 +61,14 @@ public class Medusa : MonoBehaviour
         {
             //Freeze enemy
             em.FreezeEnemy();
+
             em.isFrozen = true;
             //Stop walkin animation/use petrify animation
             em.anim.speed = 0;
+            //play sounds
+            int randomInt = UnityEngine.Random.Range(0, petrifyAudio.Length);
+            randomAudio = petrifyAudio[randomInt];
+            randomAudio.Play();
             //Wait 5 seconds
             yield return new WaitForSeconds(5f);
             //Unfreeze enemy
@@ -79,5 +94,4 @@ public class Medusa : MonoBehaviour
             soulBar.value = soulCount;
         }
     }
-
 }

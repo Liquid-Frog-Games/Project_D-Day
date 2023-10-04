@@ -15,13 +15,21 @@ public class HydraHandler : MonoBehaviour
     private bool hasShot = false;
 
     [Header("References")]
+    public AudioSource hydraRoar;
     [SerializeField] private Transform turretRotationPoint;
     [SerializeField] private LayerMask enemyMask;
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform firingPoint;
+    [SerializeField] private GameObject range;
 
     private Transform target;
     private float timeUntilFire;
+
+
+    private void Start()
+    {
+        range.transform.localScale = new Vector3(targetingRange, targetingRange, 0);
+    }
 
     void Update()
     {
@@ -32,7 +40,7 @@ public class HydraHandler : MonoBehaviour
                 FindTarget();
                 return;
             }
-
+            StartCoroutine(PlayRoar());
             RotateTowardsTarget();
             if (!CheckTargetIsInRange())
             {
@@ -67,6 +75,8 @@ public class HydraHandler : MonoBehaviour
     public void ToggleActive()
     {
         bought = true;
+
+        Destroy(range);
     }
 
     private void FindTarget()
@@ -113,5 +123,15 @@ public class HydraHandler : MonoBehaviour
             Shoot();
             Invoke("Shoot", 0.2f);
         }
+
+    private IEnumerator PlayRoar()
+    {
+        int randomInt = Random.Range(0, 10);
+        if (randomInt == 9)
+        {
+           hydraRoar.Play();
+        }
+        yield return new WaitForSeconds(30f);
+
     }
 }

@@ -64,7 +64,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 32767
   m_TargetDisplay: 0
 --- !u!114 &4078101337211834207
 MonoBehaviour:
@@ -195,7 +195,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 32767
   m_TargetDisplay: 0
 --- !u!114 &6004686445823535302
 MonoBehaviour:
@@ -1028,6 +1028,7 @@ MonoBehaviour:
   cancelSound: {fileID: 5627115020410219470}
   sellPrice: {fileID: 3881489546546927318}
   shopOpen: 0
+  previewOpen: 0
   sellPreview: 0
   totalTimeInSeconds: 1
 --- !u!61 &6982512625900489357
@@ -1360,7 +1361,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 32767
   m_TargetDisplay: 0
 --- !u!114 &9195254312734791264
 MonoBehaviour:
